@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aussie Lotto Chooser - Fast & Free</title>
+    <link href="style.css" rel="stylesheet"> 
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎱 Your Lucky Number Generator 🇦🇺</h1>
+        <p>Select your game and the number of lines to instantly generate numbers following official Australian lottery rules.</p>
+        
+        <div class="controls">
+            <label for="lottoGame">Choose Game:</label>
+            <select id="lottoGame">
+                <option value="Powerball">Powerball (7/35 + 1/20)</option>
+                <option value="OzLotto">OzLotto (7/47)</option>
+                <option value="GoldLotto">Saturday Gold Lotto (6/45)</option>
+                <option value="SetForLife">Set for Life (7/44)</option>
+            </select>
+            
+            <label for="gameCount" class="count-label">Games:</label>
+            <input type="number" id="gameCount" value="4" min="1" max="50" aria-label="Number of games to generate"> 
+
+            <button id="generateBtn">GENERATE NUMBERS</button>
+        </div>
+
+        <div id="results" class="results-area">
+            </div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>
