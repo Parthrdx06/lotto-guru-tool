@@ -3,43 +3,405 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aussie Lotto Chooser - Fast & Free</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link href="style.css" rel="stylesheet"> 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1477194273158859"
-     crossorigin="anonymous"></script>
+    <title>LottoGuru - Smart Lottery Number Generator & Winning Strategies 🎱</title>
+    <meta name="description" content="Free lottery number generator with proven strategies to improve your odds. Learn hot and cold numbers, frequency analysis, and expert tips for Powerball, Oz Lotto & more.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            animation: slideUp 0.6s ease-out;
+            margin-bottom: 20px;
+        }
+
+        .generator-section h2 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .generate-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .generate-btn:active {
+            transform: translateY(0);
+        }
+
+        .results {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .results.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        .number-line {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .number {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #764ba2;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .powerball {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            color: white;
+        }
+
+        .stats-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #764ba2;
+        }
+
+        .stat-label {
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            line-height: 1.8;
+        }
+
+        .content-section h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .content-section h2:first-child {
+            margin-top: 0;
+        }
+
+        .content-section h3 {
+            color: #764ba2;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        .content-section p {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .content-section ul, .content-section ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .content-section li {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .strategy-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #764ba2;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+            opacity: 0.9;
+        }
+
+        footer a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        footer a:hover {
+            opacity: 0.7;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .content-section {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>🎱 Your Lucky Number Generator 🇦🇺</h1>
-        <p>Select your game and the number of lines to instantly generate numbers following official Australian lottery rules.</p>
-        
-        <div class="controls">
-            <label for="lottoGame">Choose Game:</label>
-            <select id="lottoGame">
-                <option value="Powerball">Powerball (7/35 + 1/20)</option>
-                <option value="OzLotto">OzLotto (7/47)</option>
-                <option value="GoldLotto">Saturday Gold Lotto (6/45)</option>
-                <option value="SetForLife">Set for Life (7/44)</option>
-            </select>
+        <header>
+            <h1>🎱 LottoGuru</h1>
+            <p class="tagline">Your Smart Lottery Number Generator</p>
+        </header>
+
+        <div class="card generator-section">
+            <h2>Generate Your Lucky Numbers</h2>
             
-            <label for="gameCount" class="count-label">Games:</label>
-            <input type="number" id="gameCount" value="4" min="1" max="50" aria-label="Number of games to generate"> 
-
-            <button id="generateBtn">GENERATE NUMBERS</button>
-        </div> <div id="results" class="results-area">
+            <div class="form-group">
+                <label for="gameSelect">Choose Your Game</label>
+                <select id="gameSelect">
+                    <option value="powerball">Powerball (7/35 + 1/20)</option>
+                    <option value="ozlotto">Oz Lotto (7/47)</option>
+                    <option value="saturday">Saturday Gold Lotto (6/45)</option>
+                    <option value="setforlife">Set for Life (7/44)</option>
+                </select>
             </div>
-    </div> <footer class="main-footer">
-        <p>&copy; 2025 LottoGuru.net. All Rights Reserved.</p>
-        <p>
-            <a href="privacy.html" class="footer-link">Privacy Policy</a> |
-            <a href="about.html" class="footer-link">About & Contact</a>
-        </p>
-    </footer>
 
-    <script src="script.js"></script> 
+            <div class="form-group">
+                <label for="numGames">Number of Games</label>
+                <input type="number" id="numGames" min="1" max="20" value="1">
+            </div>
+
+            <button class="generate-btn" onclick="generateNumbers()">
+                🎲 GENERATE NUMBERS
+            </button>
+
+            <div class="results" id="results"></div>
+        </div>
+
+        <div class="content-section">
+            <h3>Budget Management</h3>
+            <p>Set a strict budget for lottery play and never exceed it. Treat lottery tickets as entertainment, not an investment. The most successful lottery players view it as a fun activity with strict spending limits.</p>
+
+            <div class="tip-box">
+                <strong>💰 Smart Budget Rules:</strong>
+                <ul>
+                    <li>Never spend more than you can afford to lose</li>
+                    <li>Set a weekly or monthly lottery budget</li>
+                    <li>Don't chase losses by buying more tickets</li>
+                    <li>Reinvest only a small portion of any winnings</li>
+                </ul>
+            </div>
+
+            <h2>🔍 Understanding Lottery Odds</h2>
+            <p>Different lottery games have vastly different odds. Understanding these odds helps you make informed decisions about which games to play and how much to invest.</p>
+
+            <h3>Common Lottery Odds:</h3>
+            <ul>
+                <li><strong>Powerball Jackpot:</strong> Approximately 1 in 134 million</li>
+                <li><strong>Oz Lotto Jackpot:</strong> Approximately 1 in 45 million</li>
+                <li><strong>Saturday Lotto Jackpot:</strong> Approximately 1 in 8 million</li>
+                <li><strong>Set for Life Top Prize:</strong> Approximately 1 in 38 million</li>
+            </ul>
+
+            <p>While jackpot odds are long, many games offer better odds for smaller prizes. Consider playing games with better overall prize odds if your goal is to win something regularly rather than chasing the jackpot.</p>
+
+            <h2>Final Thoughts</h2>
+            <p>Remember, no strategy can guarantee a lottery win - every draw is random and independent. The key is to play responsibly, stay consistent with your chosen approach, and most importantly, have fun!</p>
+
+            <p><em>Good luck, and may your numbers come up! 🍀</em></p>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 LottoGuru.net. All Rights Reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="#">Privacy Policy</a> | 
+                <a href="#">About & Contact</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        const gameConfigs = {
+            powerball: { main: 35, mainCount: 7, special: 20, specialCount: 1, specialName: 'Powerball' },
+            ozlotto: { main: 47, mainCount: 7, special: 0 },
+            saturday: { main: 45, mainCount: 6, special: 0 },
+            setforlife: { main: 44, mainCount: 7, special: 0 }
+        };
+
+        function generateNumbers() {
+            const gameSelect = document.getElementById('gameSelect').value;
+            const numGames = parseInt(document.getElementById('numGames').value);
+            const config = gameConfigs[gameSelect];
+            const resultsDiv = document.getElementById('results');
+            
+            let html = '<h3 style="color: #667eea; margin-bottom: 20px;">Your Generated Numbers</h3>';
+            
+            for (let i = 0; i < numGames; i++) {
+                html += '<div class="number-line">';
+                html += `<strong style="color: white; margin-right: 10px;">Game ${i + 1}:</strong>`;
+                
+                const mainNumbers = [];
+                while (mainNumbers.length < config.mainCount) {
+                    const num = Math.floor(Math.random() * config.main) + 1;
+                    if (!mainNumbers.includes(num)) {
+                        mainNumbers.push(num);
+                    }
+                }
+                mainNumbers.sort((a, b) => a - b);
+                
+                mainNumbers.forEach(num => {
+                    html += `<div class="number">${num}</div>`;
+                });
+                
+                if (config.special) {
+                    const specialNum = Math.floor(Math.random() * config.special) + 1;
+                    html += `<div class="number powerball">${specialNum}</div>`;
+                }
+                
+                html += '</div>';
+            }
+            
+            resultsDiv.innerHTML = html;
+            resultsDiv.classList.add('active');
+            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
 </body>
 </html>
-
-
