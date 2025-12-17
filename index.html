@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1477194273158859" crossorigin="anonymous"></script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LottoGuru - Smart Lottery Number Generator & Winning Strategies 🎱</title>
@@ -306,4 +304,104 @@
             </div>
 
             <div class="form-group">
-                <label for="numGames">
+                <label for="numGames">Number of Games</label>
+                <input type="number" id="numGames" min="1" max="20" value="1">
+            </div>
+
+            <button class="generate-btn" onclick="generateNumbers()">
+                🎲 GENERATE NUMBERS
+            </button>
+
+            <div class="results" id="results"></div>
+        </div>
+
+        <div class="content-section">
+            <h3>Budget Management</h3>
+            <p>Set a strict budget for lottery play and never exceed it. Treat lottery tickets as entertainment, not an investment. The most successful lottery players view it as a fun activity with strict spending limits.</p>
+
+            <div class="tip-box">
+                <strong>💰 Smart Budget Rules:</strong>
+                <ul>
+                    <li>Never spend more than you can afford to lose</li>
+                    <li>Set a weekly or monthly lottery budget</li>
+                    <li>Don't chase losses by buying more tickets</li>
+                    <li>Reinvest only a small portion of any winnings</li>
+                </ul>
+            </div>
+
+            <h2>🔍 Understanding Lottery Odds</h2>
+            <p>Different lottery games have vastly different odds. Understanding these odds helps you make informed decisions about which games to play and how much to invest.</p>
+
+            <h3>Common Lottery Odds:</h3>
+            <ul>
+                <li><strong>Powerball Jackpot:</strong> Approximately 1 in 134 million</li>
+                <li><strong>Oz Lotto Jackpot:</strong> Approximately 1 in 45 million</li>
+                <li><strong>Saturday Lotto Jackpot:</strong> Approximately 1 in 8 million</li>
+                <li><strong>Set for Life Top Prize:</strong> Approximately 1 in 38 million</li>
+            </ul>
+
+            <p>While jackpot odds are long, many games offer better odds for smaller prizes. Consider playing games with better overall prize odds if your goal is to win something regularly rather than chasing the jackpot.</p>
+
+            <h2>Final Thoughts</h2>
+            <p>Remember, no strategy can guarantee a lottery win - every draw is random and independent. The key is to play responsibly, stay consistent with your chosen approach, and most importantly, have fun!</p>
+
+            <p><em>Good luck, and may your numbers come up! 🍀</em></p>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 LottoGuru.net. All Rights Reserved.</p>
+            <p style="margin-top: 10px;">
+                <a href="privacy.html">Privacy Policy</a> | 
+                <a href="about.html">About & Contact</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        const gameConfigs = {
+            powerball: { main: 35, mainCount: 7, special: 20, specialCount: 1, specialName: 'Powerball' },
+            ozlotto: { main: 47, mainCount: 7, special: 0 },
+            saturday: { main: 45, mainCount: 6, special: 0 },
+            setforlife: { main: 44, mainCount: 7, special: 0 }
+        };
+
+        function generateNumbers() {
+            const gameSelect = document.getElementById('gameSelect').value;
+            const numGames = parseInt(document.getElementById('numGames').value);
+            const config = gameConfigs[gameSelect];
+            const resultsDiv = document.getElementById('results');
+            
+            let html = '<h3 style="color: #667eea; margin-bottom: 20px;">Your Generated Numbers</h3>';
+            
+            for (let i = 0; i < numGames; i++) {
+                html += '<div class="number-line">';
+                html += `<strong style="color: white; margin-right: 10px;">Game ${i + 1}:</strong>`;
+                
+                const mainNumbers = [];
+                while (mainNumbers.length < config.mainCount) {
+                    const num = Math.floor(Math.random() * config.main) + 1;
+                    if (!mainNumbers.includes(num)) {
+                        mainNumbers.push(num);
+                    }
+                }
+                mainNumbers.sort((a, b) => a - b);
+                
+                mainNumbers.forEach(num => {
+                    html += `<div class="number">${num}</div>`;
+                });
+                
+                if (config.special) {
+                    const specialNum = Math.floor(Math.random() * config.special) + 1;
+                    html += `<div class="number powerball">${specialNum}</div>`;
+                }
+                
+                html += '</div>';
+            }
+            
+            resultsDiv.innerHTML = html;
+            resultsDiv.classList.add('active');
+            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
