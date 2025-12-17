@@ -1,161 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1477194273158859" crossorigin="anonymous"></script>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About & Contact - LottoGuru</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; }
-        header { text-align: center; color: white; margin-bottom: 40px; }
-        h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        .back-link { display: inline-block; color: white; text-decoration: none; margin-bottom: 20px; padding: 10px 20px; background: rgba(255,255,255,0.2); border-radius: 8px; transition: background 0.3s; }
-        .back-link:hover { background: rgba(255,255,255,0.3); }
-        .content { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); line-height: 1.8; margin-bottom: 20px; }
-        .content h2 { color: #667eea; margin-top: 30px; margin-bottom: 15px; font-size: 1.6em; }
-        .content h2:first-of-type { margin-top: 0; }
-        .content p { margin-bottom: 15px; color: #333; }
-        .content ul { margin-left: 25px; margin-bottom: 15px; }
-        .content li { margin-bottom: 10px; color: #333; }
-        .contact-form { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
-        .contact-form h2 { color: #667eea; margin-bottom: 20px; }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; color: #333; font-weight: 600; }
-        input, textarea { width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 16px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; transition: all 0.3s; }
-        input:focus, textarea:focus { outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); }
-        textarea { min-height: 150px; resize: vertical; }
-        .submit-btn { width: 100%; padding: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 12px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
-        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4); }
-        .submit-btn:active { transform: translateY(0); }
-        .contact-info { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); padding: 25px; border-radius: 15px; margin-bottom: 30px; }
-        .contact-info h3 { color: #764ba2; margin-bottom: 15px; }
-        .contact-info p { color: #333; margin-bottom: 10px; }
-        .contact-info a { color: #667eea; text-decoration: none; font-weight: 600; }
-        footer { text-align: center; color: white; margin-top: 40px; padding: 20px; opacity: 0.9; }
-        footer a { color: white; text-decoration: none; }
-        .success-message { display: none; background: #4caf50; color: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About & Contact - LottoGuru</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            color: #667eea;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+
+        .content h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .content p {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .content ul {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .content li {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .contact-form {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .contact-form h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .contact-info h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+            opacity: 0.9;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .success-message {
+            display: none;
+            background: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="index.html" class="back-link">← Back to Home</a>
-            <h1>About & Contact</h1>
-        </header>
+    <div class="container">
+        <header>
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1>About & Contact</h1>
+        </header>
 
-        <div class="content">
-            <h2>About LottoGuru</h2>
-            <p>Welcome to LottoGuru, your trusted companion for lottery number generation. We created this platform to provide lottery enthusiasts with a fast, free, and reliable way to generate random numbers for various lottery games.</p>
+        <div class="content">
+            <h2>About LottoGuru</h2>
+            <p>Welcome to LottoGuru, your trusted companion for lottery number generation. We created this platform to provide lottery enthusiasts with a fast, free, and reliable way to generate random numbers for various lottery games.</p>
 
-            <h2>Our Mission</h2>
-            <p>Our mission is simple: to make lottery number selection easy and accessible for everyone. We believe that choosing your lottery numbers should be quick, fun, and hassle-free.</p>
+            <h2>Our Mission</h2>
+            <p>Our mission is simple: to make lottery number selection easy and accessible for everyone. We believe that choosing your lottery numbers should be quick, fun, and hassle-free.</p>
 
-            <h2>What We Offer</h2>
-            <ul>
-                <li><strong>Free Number Generation:</strong> Generate unlimited lottery number combinations at no cost</li>
-                <li><strong>Multiple Games Support:</strong> Support for Powerball, Oz Lotto, Saturday Gold Lotto, and Set for Life</li>
-                <li><strong>True Randomization:</strong> Our generator uses advanced algorithms to ensure truly random number selection</li>
-                <li><strong>User-Friendly Interface:</strong> Clean, modern design that works perfectly on all devices</li>
-                <li><strong>No Registration Required:</strong> Start generating numbers immediately without signing up</li>
-                <li><strong>Educational Content:</strong> Tips and information to help you make informed decisions</li>
-            </ul>
+            <h2>What We Offer</h2>
+            <ul>
+                <li><strong>Free Number Generation:</strong> Generate unlimited lottery number combinations at no cost</li>
+                <li><strong>Multiple Games Support:</strong> Support for Powerball, Oz Lotto, Saturday Gold Lotto, and Set for Life</li>
+                <li><strong>True Randomization:</strong> Our generator uses advanced algorithms to ensure truly random number selection</li>
+                <li><strong>User-Friendly Interface:</strong> Clean, modern design that works perfectly on all devices</li>
+                <li><strong>No Registration Required:</strong> Start generating numbers immediately without signing up</li>
+                <li><strong>Educational Content:</strong> Tips and information to help you make informed decisions</li>
+            </ul>
 
-            <h2>Important Disclaimer</h2>
-            <p>LottoGuru is a free tool for generating random lottery numbers. We do not:</p>
-            <ul>
-                <li>Sell lottery tickets</li>
-                <li>Operate lottery games</li>
-                <li>Guarantee winnings or success</li>
-                <li>Claim to increase your odds of winning</li>
-                <li>Endorse gambling as a source of income</li>
-            </ul>
-            <p>All lottery games are operated by official government organizations. Please play responsibly and within your means. Lottery should be viewed as entertainment, not as an investment strategy.</p>
+            <h2>Important Disclaimer</h2>
+            <p>LottoGuru is a free tool for generating random lottery numbers. We do not:</p>
+            <ul>
+                <li>Sell lottery tickets</li>
+                <li>Operate lottery games</li>
+                <li>Guarantee winnings or success</li>
+                <li>Claim to increase your odds of winning</li>
+                <li>Endorse gambling as a source of income</li>
+            </ul>
+            <p>All lottery games are operated by official government organizations. Please play responsibly and within your means. Lottery should be viewed as entertainment, not as an investment strategy.</p>
 
-            <h2>Our Commitment</h2>
-            <p>We are committed to:</p>
-            <ul>
-                <li>Maintaining a completely free service</li>
-                <li>Protecting your privacy and data</li>
-                <li>Providing accurate and reliable number generation</li>
-                <li>Continuously improving our platform based on user feedback</li>
-                <li>Promoting responsible gaming practices</li>
-            </ul>
-        </div>
+            <h2>Our Commitment</h2>
+            <p>We are committed to:</p>
+            <ul>
+                <li>Maintaining a completely free service</li>
+                <li>Protecting your privacy and data</li>
+                <li>Providing accurate and reliable number generation</li>
+                <li>Continuously improving our platform based on user feedback</li>
+                <li>Promoting responsible gaming practices</li>
+            </ul>
+        </div>
 
-        <div class="contact-form">
-            <h2>Get In Touch</h2>
-            
-            <div class="contact-info">
-                <h3>📧 Contact Information</h3>
-                <p><strong>Email:</strong> <a href="mailto:parthinvestment06@gmail.com">parthinvestment06@gmail.com</a></p>
-                <p><strong>Response Time:</strong> We typically respond within 24-48 hours</p>
-            </div>
+        <div class="contact-form">
+            <h2>Get In Touch</h2>
+            
+            <div class="contact-info">
+                <h3>📧 Contact Information</h3>
+                <p><strong>Email:</strong> <a href="mailto:parthinvestment06@gmail.com">parthinvestment06@gmail.com</a></p>
+                <p><strong>Response Time:</strong> We typically respond within 24-48 hours</p>
+            </div>
 
-            <div class="success-message" id="successMessage">
-                Thank you! Your message has been sent successfully. We'll get back to you soon.
-            </div>
+            <div class="success-message" id="successMessage">
+                Thank you! Your message has been sent successfully. We'll get back to you soon.
+            </div>
 
-            <form id="contactForm" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Your Name *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
+            <form id="contactForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
 
-                <div class="form-group">
-                    <label for="email">Your Email *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
+                <div class="form-group">
+                    <label for="email">Your Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
 
-                <div class="form-group">
-                    <label for="subject">Subject *</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
 
-                <div class="form-group">
-                    <label for="message">Your Message *</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
+                <div class="form-group">
+                    <label for="message">Your Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
 
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
 
-            <p style="margin-top: 20px; color: #666; font-size: 0.9em;">
-                * We welcome feedback, suggestions, partnership inquiries, and support requests. We do not provide gambling advice or predictions.
-            </p>
-        </div>
+            <p style="margin-top: 20px; color: #666; font-size: 0.9em;">
+                * We welcome feedback, suggestions, partnership inquiries, and support requests. We do not provide gambling advice or predictions.
+            </p>
+        </div>
 
-        <footer>
-            <p>&copy; 2025 LottoGuru.net. All Rights Reserved.</p>
-        </footer>
-    </div>
+        <footer>
+            <p>&copy; 2025 LottoGuru.net. All Rights Reserved.</p>
+        </footer>
+    </div>
 
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Create mailto link
-            const mailtoLink = `mailto:parthinvestment06@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            document.getElementById('successMessage').style.display = 'block';
-            document.getElementById('contactForm').reset();
-            
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('successMessage').style.display = 'none';
-            }, 5000);
-        }
-    </script>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:parthinvestment06@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('contactForm').reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        }
+    </script>
 </body>
 </html>
