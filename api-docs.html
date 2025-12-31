@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer API | LottoGuru.net</title>
+    <style>
+        :root { --primary: #1a2a6c; --dark: #212529; --light: #f8f9fa; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); margin: 0; }
+        header { background: var(--primary); color: white; padding: 40px 20px; text-align: center; }
+        .container { max-width: 900px; margin: 30px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        code { background: #e9ecef; padding: 2px 5px; border-radius: 4px; font-family: monospace; }
+        pre { background: #2d3436; color: #fab1a0; padding: 20px; border-radius: 8px; overflow-x: auto; }
+        .endpoint { font-weight: bold; color: #d63031; border-left: 4px solid #d63031; padding-left: 10px; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background: #f1f3f5; }
+        .back-link { display: inline-block; margin-bottom: 20px; text-decoration: none; color: var(--primary); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Technical Documentation</h1>
+    <p>LottoGuru Smart-Algorithm API v1.0</p>
+</header>
+
+<div class="container">
+    <a href="index.html" class="back-link">← Back to LottoGuru</a>
+    
+    <h2>Introduction</h2>
+    <p>The LottoGuru API allows developers to integrate our <strong>Balanced-Filter Algorithm</strong> into their own applications. Our engine uses a triple-pass validation system to ensure numbers meet historical probability standards.</p>
+
+    <div class="endpoint">GET /api/v1/generate?game={game_id}&count={number}</div>
+
+    <h3>Request Parameters</h3>
+    <table>
+        <thead>
+            <tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><code>game</code></td><td>String</td><td>Yes</td><td>Options: <code>sat_lotto</code>, <code>power_au</code>, <code>mega_usa</code></td></tr>
+            <tr><td><code>count</code></td><td>Integer</td><td>No</td><td>Number of lines to generate (Max 10).</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Algorithm Logic: The "Smart Pass"</h3>
+    <p>Every generated set is validated against our <strong>Median Sum Rule</strong>. For a standard 6/45 draw, the sum must fall between 106 and 170. This ensures the numbers are not "statistically extreme."</p>
+
+    <h3>JSON Response Example</h3>
+    <pre>
+{
+  "status": "success",
+  "algorithm": "balanced_v1",
+  "results": [
+    {
+      "numbers": [4, 15, 22, 31, 38, 42],
+      "metrics": {
+        "sum": 152,
+        "high_low_ratio": "3:3"
+      }
+    }
+  ]
+}</pre>
+
+    <footer style="margin-top:50px; font-size: 0.9rem; border-top: 1px solid #eee; padding-top: 20px;">
+        <p>Contact: parthinvestment06@gmail.com for private API key requests.</p>
+    </footer>
+</div>
+
+</body>
+</html>

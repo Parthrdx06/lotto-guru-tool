@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Point to your sitemap to help indexing
+Sitemap: https://lottoguru.net/sitemap.xml
+
+# Prevent crawlers from indexing specific tech files if you add them later
+Disallow: /cgi-bin/
