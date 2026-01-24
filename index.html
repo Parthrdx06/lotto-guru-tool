@@ -23,29 +23,30 @@
         #detail-view { display: none; background: white; padding: 30px; border-radius: 15px; box-shadow: var(--shadow); margin-top: 20px; }
         .btn-back { background: #eee; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-bottom: 20px; }
         
-        /* PRIZE TABLE */
-        .prize-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        /* PRIZE TABLE (Matches your Screenshot) */
+        .prize-table { width: 100%; border-collapse: collapse; margin: 20px 0; border: 1px solid #eee; }
+        .prize-table tr:nth-child(even) { background: #fafafa; }
         .prize-table td { padding: 15px 12px; border-bottom: 1px solid #eee; }
-        .div-name { font-weight: bold; color: var(--primary); font-size: 1.1rem; display: block;}
-        .match-desc { color: #666; font-size: 0.9rem; }
-        .odds-val { font-weight: bold; text-align: right; color: #333; }
+        .div-name { font-weight: bold; color: var(--primary); font-size: 1.1rem; display: block; margin-bottom: 2px; }
+        .match-desc { color: #666; font-size: 0.85rem; display: block; line-height: 1.2; }
+        .odds-val { font-weight: bold; text-align: right; color: #333; white-space: nowrap; font-size: 1rem; }
 
         /* GENERATOR */
         .gen-container { background: #f0f2f5; padding: 25px; border-radius: 10px; text-align: center; margin-top: 30px; }
         .ball-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 15px 0; }
         .ball {
-            width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: bold; background: radial-gradient(circle at 15px 15px, #5da2ff, #1a2a6c);
+            width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: bold; background: radial-gradient(circle at 12px 12px, #5da2ff, #1a2a6c);
             box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
         }
-        .ball.special { background: radial-gradient(circle at 15px 15px, #ff5f6d, #b21f1f); }
+        .ball.special { background: radial-gradient(circle at 12px 12px, #ff5f6d, #b21f1f); }
     </style>
 </head>
 <body>
 
 <header>
     <h1>🎱 LottoGuru</h1>
-    <p>Professional Winning Combinations & Smart Tools</p>
+    <p>Complete Winning Combinations & Analytics</p>
 </header>
 
 <div class="container">
@@ -60,7 +61,7 @@
 
         <div class="gen-container">
             <h3>Generate Smart Numbers</h3>
-            <button style="background:var(--success); color:white; border:none; padding:12px 25px; border-radius:5px; cursor:pointer; font-weight:bold;" onclick="runGenerator()">Generate</button>
+            <button style="background:var(--success); color:white; border:none; padding:12px 25px; border-radius:5px; cursor:pointer; font-weight:bold;" onclick="runGenerator()">Generate Now</button>
             <div id="results-area"></div>
         </div>
     </div>
@@ -68,69 +69,121 @@
 
 <div id="lotto-guides-vault" style="display: none;">
     
+    <div id="guide-power_au">
+        <h3>Winning Combinations</h3>
+        <table class="prize-table">
+            <tr><td><span class="div-name">Division 1</span><span class="match-desc">7 winning numbers + Powerball</span></td><td class="odds-val">134,490,400:1</td></tr>
+            <tr><td><span class="div-name">Division 2</span><span class="match-desc">7 winning numbers</span></td><td class="odds-val">7,078,443:1</td></tr>
+            <tr><td><span class="div-name">Division 3</span><span class="match-desc">6 winning numbers + Powerball</span></td><td class="odds-val">686,176:1</td></tr>
+            <tr><td><span class="div-name">Division 4</span><span class="match-desc">6 winning numbers</span></td><td class="odds-val">36,115:1</td></tr>
+            <tr><td><span class="div-name">Division 5</span><span class="match-desc">5 winning numbers + Powerball</span></td><td class="odds-val">16,943:1</td></tr>
+            <tr><td><span class="div-name">Division 6</span><span class="match-desc">4 winning numbers + Powerball</span></td><td class="odds-val">1,173:1</td></tr>
+            <tr><td><span class="div-name">Division 7</span><span class="match-desc">5 winning numbers</span></td><td class="odds-val">892:1</td></tr>
+            <tr><td><span class="div-name">Division 8</span><span class="match-desc">3 winning numbers + Powerball</span></td><td class="odds-val">188:1</td></tr>
+            <tr><td><span class="div-name">Division 9</span><span class="match-desc">2 winning numbers + Powerball</span></td><td class="odds-val">66:1</td></tr>
+        </table>
+    </div>
+
+    <div id="guide-oz_lotto">
+        <h3>Winning Combinations</h3>
+        <table class="prize-table">
+            <tr><td><span class="div-name">Division 1</span><span class="match-desc">7 winning numbers</span></td><td class="odds-val">62,891,499:1</td></tr>
+            <tr><td><span class="div-name">Division 2</span><span class="match-desc">6 winning numbers + 1 supplementary</span></td><td class="odds-val">2,994,834:1</td></tr>
+            <tr><td><span class="div-name">Division 3</span><span class="match-desc">6 winning numbers</span></td><td class="odds-val">187,178:1</td></tr>
+            <tr><td><span class="div-name">Division 4</span><span class="match-desc">5 winning numbers + 1 supplementary</span></td><td class="odds-val">25,640:1</td></tr>
+            <tr><td><span class="div-name">Division 5</span><span class="match-desc">5 winning numbers</span></td><td class="odds-val">3,205:1</td></tr>
+            <tr><td><span class="div-name">Division 6</span><span class="match-desc">4 winning numbers</span></td><td class="odds-val">161:1</td></tr>
+            <tr><td><span class="div-name">Division 7</span><span class="match-desc">3 winning numbers + 1 supplementary</span></td><td class="odds-val">71:1</td></tr>
+        </table>
+    </div>
+
     <div id="guide-sat_lotto">
         <h3>Winning Combinations</h3>
         <table class="prize-table">
             <tr><td><span class="div-name">Division 1</span><span class="match-desc">6 winning numbers</span></td><td class="odds-val">8,145,060:1</td></tr>
-            <tr><td><span class="div-name">Division 2</span><span class="match-desc">5 winning numbers + 1 supp.</span></td><td class="odds-val">678,755:1</td></tr>
+            <tr><td><span class="div-name">Division 2</span><span class="match-desc">5 winning numbers + 1 supplementary</span></td><td class="odds-val">678,755:1</td></tr>
+            <tr><td><span class="div-name">Division 3</span><span class="match-desc">5 winning numbers</span></td><td class="odds-val">36,690:1</td></tr>
+            <tr><td><span class="div-name">Division 4</span><span class="match-desc">4 winning numbers</span></td><td class="odds-val">733:1</td></tr>
+            <tr><td><span class="div-name">Division 5</span><span class="match-desc">3 winning numbers + 1 supplementary</span></td><td class="odds-val">298:1</td></tr>
             <tr><td><span class="div-name">Division 6</span><span class="match-desc">3 winning numbers</span></td><td class="odds-val">53:1</td></tr>
         </table>
     </div>
 
-    <div id="guide-power_au">
+    <div id="guide-set_life">
         <h3>Winning Combinations</h3>
         <table class="prize-table">
-            <tr><td><span class="div-name">Division 1</span><span class="match-desc">7 numbers + Powerball</span></td><td class="odds-val">134,490,400:1</td></tr>
-            <tr><td><span class="div-name">Division 9</span><span class="match-desc">2 numbers + Powerball</span></td><td class="odds-val">66:1</td></tr>
-        </table>
-    </div>
-
-    <div id="guide-mega_usa">
-        <h3>Winning Combinations</h3>
-        <table class="prize-table">
-            <tr><td><span class="div-name">Jackpot</span><span class="match-desc">5 numbers + Mega Ball</span></td><td class="odds-val">302,575,350:1</td></tr>
-            <tr><td><span class="div-name">Match 5</span><span class="match-desc">5 numbers (No Mega Ball)</span></td><td class="odds-val">12,607,306:1</td></tr>
-            <tr><td><span class="div-name">Mega Ball</span><span class="match-desc">Mega Ball only</span></td><td class="odds-val">37:1</td></tr>
+            <tr><td><span class="div-name">Division 1</span><span class="match-desc">7 winning numbers</span></td><td class="odds-val">38,320,568:1</td></tr>
+            <tr><td><span class="div-name">Division 2</span><span class="match-desc">6 winning numbers + 1 supplementary</span></td><td class="odds-val">2,400,000:1</td></tr>
+            <tr><td><span class="div-name">Division 3</span><span class="match-desc">6 winning numbers</span></td><td class="odds-val">170,000:1</td></tr>
+            <tr><td><span class="div-name">Division 8</span><span class="match-desc">3 winning numbers + 1 supplementary</span></td><td class="odds-val">80:1</td></tr>
         </table>
     </div>
 
     <div id="guide-power_usa">
         <h3>Winning Combinations</h3>
         <table class="prize-table">
-            <tr><td><span class="div-name">Grand Prize</span><span class="match-desc">5 numbers + Powerball</span></td><td class="odds-val">292,201,338:1</td></tr>
-            <tr><td><span class="div-name">Match 5</span><span class="match-desc">5 numbers</span></td><td class="odds-val">11,688,054:1</td></tr>
-            <tr><td><span class="div-name">Powerball</span><span class="match-desc">Powerball only</span></td><td class="odds-val">38:1</td></tr>
+            <tr><td><span class="div-name">Grand Prize</span><span class="match-desc">5 Main + Powerball</span></td><td class="odds-val">292,201,338:1</td></tr>
+            <tr><td><span class="div-name">Match 5</span><span class="match-desc">5 Main</span></td><td class="odds-val">11,688,054:1</td></tr>
+            <tr><td><span class="div-name">Match 4 + PB</span><span class="match-desc">4 Main + Powerball</span></td><td class="odds-val">913,129:1</td></tr>
+            <tr><td><span class="div-name">Match 4</span><span class="match-desc">4 Main</span></td><td class="odds-val">36,525:1</td></tr>
+            <tr><td><span class="div-name">Match 3 + PB</span><span class="match-desc">3 Main + Powerball</span></td><td class="odds-val">14,494:1</td></tr>
+            <tr><td><span class="div-name">Match 3</span><span class="match-desc">3 Main</span></td><td class="odds-val">580:1</td></tr>
+            <tr><td><span class="div-name">Match 2 + PB</span><span class="match-desc">2 Main + Powerball</span></td><td class="odds-val">701:1</td></tr>
+            <tr><td><span class="div-name">Match 1 + PB</span><span class="match-desc">1 Main + Powerball</span></td><td class="odds-val">92:1</td></tr>
+            <tr><td><span class="div-name">Powerball Only</span><span class="match-desc">Powerball only</span></td><td class="odds-val">38:1</td></tr>
+        </table>
+    </div>
+
+    <div id="guide-mega_usa">
+        <h3>Winning Combinations</h3>
+        <table class="prize-table">
+            <tr><td><span class="div-name">Jackpot</span><span class="match-desc">5 Main + Mega Ball</span></td><td class="odds-val">302,575,350:1</td></tr>
+            <tr><td><span class="div-name">Match 5</span><span class="match-desc">5 Main</span></td><td class="odds-val">12,607,306:1</td></tr>
+            <tr><td><span class="div-name">Match 4 + MB</span><span class="match-desc">4 Main + Mega Ball</span></td><td class="odds-val">931,001:1</td></tr>
+            <tr><td><span class="div-name">Match 4</span><span class="match-desc">4 Main</span></td><td class="odds-val">38,792:1</td></tr>
+            <tr><td><span class="div-name">Match 3 + MB</span><span class="match-desc">3 Main + Mega Ball</span></td><td class="odds-val">14,547:1</td></tr>
+            <tr><td><span class="div-name">Match 3</span><span class="match-desc">3 Main</span></td><td class="odds-val">606:1</td></tr>
+            <tr><td><span class="div-name">Match 2 + MB</span><span class="match-desc">2 Main + Mega Ball</span></td><td class="odds-val">693:1</td></tr>
+            <tr><td><span class="div-name">Match 1 + MB</span><span class="match-desc">1 Main + Mega Ball</span></td><td class="odds-val">89:1</td></tr>
+            <tr><td><span class="div-name">Mega Ball Only</span><span class="match-desc">Mega Ball only</span></td><td class="odds-val">37:1</td></tr>
         </table>
     </div>
 
     <div id="guide-euro_mill">
         <h3>Winning Combinations</h3>
         <table class="prize-table">
-            <tr><td><span class="div-name">Jackpot</span><span class="match-desc">5 numbers + 2 Lucky Stars</span></td><td class="odds-val">139,838,160:1</td></tr>
-            <tr><td><span class="div-name">Match 2</span><span class="match-desc">2 numbers only</span></td><td class="odds-val">22:1</td></tr>
+            <tr><td><span class="div-name">Jackpot</span><span class="match-desc">5 Main + 2 Stars</span></td><td class="odds-val">139,838,160:1</td></tr>
+            <tr><td><span class="div-name">Tier 2</span><span class="match-desc">5 Main + 1 Star</span></td><td class="odds-val">6,991,908:1</td></tr>
+            <tr><td><span class="div-name">Tier 13</span><span class="match-desc">2 Main</span></td><td class="odds-val">22:1</td></tr>
         </table>
     </div>
 
-    <div id="guide-euro_jack">
+    <div id="guide-lotto_strike">
         <h3>Winning Combinations</h3>
         <table class="prize-table">
-            <tr><td><span class="div-name">Jackpot</span><span class="match-desc">5 numbers + 2 Euro Stars</span></td><td class="odds-val">139,838,160:1</td></tr>
-            <tr><td><span class="div-name">Match 2+1</span><span class="match-desc">2 numbers + 1 Euro Star</span></td><td class="odds-val">49:1</td></tr>
+            <tr><td><span class="div-name">Strike 4</span><span class="match-desc">First 4 numbers in exact order</span></td><td class="odds-val">3,575,880:1</td></tr>
+            <tr><td><span class="div-name">Strike 3</span><span class="match-desc">First 3 numbers in exact order</span></td><td class="odds-val">33,110:1</td></tr>
+            <tr><td><span class="div-name">Strike 2</span><span class="match-desc">First 2 numbers in exact order</span></td><td class="odds-val">1,110:1</td></tr>
+            <tr><td><span class="div-name">Strike 1</span><span class="match-desc">First number in exact order</span></td><td class="odds-val">45:1</td></tr>
+        </table>
+    </div>
+
+    <div id="guide-lucky_mega">
+        <h3>Winning Combinations</h3>
+        <table class="prize-table">
+            <tr><td><span class="div-name">Jackpot</span><span class="match-desc">Ticket Number Drawn as 1st + Jackpot Match</span></td><td class="odds-val">9,483,168:1</td></tr>
+            <tr><td><span class="div-name">1st Prize</span><span class="match-desc">Your unique ticket number is drawn</span></td><td class="odds-val">200,000:1</td></tr>
         </table>
     </div>
 
     <div id="guide-irish_lotto">
         <h3>Winning Combinations</h3>
         <table class="prize-table">
-            <tr><td><span class="div-name">Jackpot</span><span class="match-desc">6 numbers</span></td><td class="odds-val">10,737,573:1</td></tr>
-            <tr><td><span class="div-name">Match 3</span><span class="match-desc">3 numbers</span></td><td class="odds-val">54:1</td></tr>
+            <tr><td><span class="div-name">Jackpot</span><span class="match-desc">6 winning numbers</span></td><td class="odds-val">10,737,573:1</td></tr>
+            <tr><td><span class="div-name">Match 5 + Bonus</span><span class="match-desc">5 numbers + Bonus Ball</span></td><td class="odds-val">1,789,596:1</td></tr>
+            <tr><td><span class="div-name">Match 3</span><span class="match-desc">3 winning numbers</span></td><td class="odds-val">54:1</td></tr>
         </table>
     </div>
-
-    <div id="guide-lotto_strike"><h3>Winning Combinations</h3><table class="prize-table"><tr><td><span class="div-name">Strike 4</span><span class="match-desc">4 in exact order</span></td><td class="odds-val">3,575,880:1</td></tr></table></div>
-    <div id="guide-set_life"><h3>Winning Combinations</h3><table class="prize-table"><tr><td><span class="div-name">Division 1</span><span class="match-desc">7 numbers (20 years)</span></td><td class="odds-val">38,320,568:1</td></tr></table></div>
-    <div id="guide-lucky_mega"><h3>Winning Combinations</h3><table class="prize-table"><tr><td><span class="div-name">Jackpot</span><span class="match-desc">1 unique ticket</span></td><td class="odds-val">9,483,168:1</td></tr></table></div>
-    <div id="guide-oz_lotto"><h3>Winning Combinations</h3><table class="prize-table"><tr><td><span class="div-name">Division 1</span><span class="match-desc">7 numbers</span></td><td class="odds-val">62,891,499:1</td></tr></table></div>
 </div>
 
 <script>
@@ -161,15 +214,16 @@
     }
 
     function showDetail(id) {
-        const currentLotto = lotteryData.find(l => l.id === id);
-        window.currentFormat = currentLotto.format; // Save for generator
+        const lotto = lotteryData.find(l => l.id === id);
+        window.activeFormat = lotto.format;
         document.getElementById('home-view').style.display = 'none';
         document.getElementById('detail-view').style.display = 'block';
-        document.getElementById('detail-header').innerHTML = `<h2>${currentLotto.flag} ${currentLotto.name}</h2>`;
+        document.getElementById('detail-header').innerHTML = `<h2>${lotto.flag} ${lotto.name}</h2>`;
         
-        const vaultId = (id === 'weekday') ? 'guide-sat_lotto' : 'guide-' + id;
+        // Map Weekday Windfall to Saturday Lotto Table (they are identical)
+        const vaultId = (id === 'weekday' || id === 'euro_jack') ? (id === 'weekday' ? 'guide-sat_lotto' : 'guide-euro_mill') : 'guide-' + id;
         const vaultSource = document.getElementById(vaultId);
-        document.getElementById('guide-display-area').innerHTML = vaultSource ? vaultSource.innerHTML : "Loading...";
+        document.getElementById('guide-display-area').innerHTML = vaultSource ? vaultSource.innerHTML : "<p>Data structure updating...</p>";
         document.getElementById('results-area').innerHTML = '';
         window.scrollTo(0,0);
     }
@@ -182,7 +236,7 @@
     function runGenerator() {
         const results = document.getElementById('results-area');
         results.innerHTML = '';
-        const [mC, mM, sC, sM] = window.currentFormat;
+        const [mC, mM, sC, sM] = window.activeFormat;
         const row = document.createElement('div'); row.className = 'ball-row';
         
         let nums = [];
