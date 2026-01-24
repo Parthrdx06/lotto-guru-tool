@@ -1,1 +1,88 @@
-/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irish Lotto Generator & Official Prize Odds | LottoGuru</title>
+    <style>
+        :root { --primary: #1a2a6c; --secondary: #b21f1f; --accent: #fdbb2d; --dark: #121212; --card: #1e1e1e; --irish-green: #009a44; }
+        body { font-family: 'Segoe UI', sans-serif; background: #000; color: #fff; margin: 0; line-height: 1.6; }
+        header { background: linear-gradient(135deg, #009a44, #ff8200); padding: 40px 20px; text-align: center; border-bottom: 3px solid #fff; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        
+        /* GENERATOR */
+        .gen-section { background: var(--card); padding: 30px; border-radius: 20px; text-align: center; margin-bottom: 30px; border: 1px solid #333; }
+        .ball-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .ball { width: 45px; height: 45px; background: radial-gradient(circle at 15px 15px, #009a44, #006b2f); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.5); border: 1px solid #ffffff44; }
+        button { background: #ff8200; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: 0.3s; }
+        button:hover { background: #e67300; transform: scale(1.05); }
+
+        /* PRIZE CARDS */
+        .prize-card { background: var(--card); margin-bottom: 12px; padding: 18px; border-radius: 12px; border-left: 5px solid #009a44; }
+        .div-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 4px; color: #fff; }
+        .div-match { color: #aaa; font-size: 0.9rem; }
+        .div-odds { color: #009a44; font-weight: 700; margin-top: 5px; display: block; }
+
+        /* ARTICLE SECTION */
+        article { background: #111; padding: 35px; border-radius: 20px; margin-top: 40px; color: #ccc; border: 1px solid #222; }
+        h2 { color: #fff; border-bottom: 2px solid #ff8200; padding-bottom: 5px; display: inline-block; margin-top: 25px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>☘️ Irish National Lotto</h1>
+    <p>Ireland's Flagship Game - Smart Picks & Official Odds</p>
+</header>
+
+<div class="container">
+    <div class="gen-section">
+        <div class="ball-row" id="balls-container"></div>
+        <button onclick="generateIrish()">Generate Irish Picks</button>
+    </div>
+
+    <h2>Winning Combinations</h2>
+    <div id="prize-list">
+        <div class="prize-card"><div class="div-title">Jackpot</div><div class="div-match">Match 6 Main Numbers</div><span class="div-odds">Odds: 1 in 10,737,573</span></div>
+        <div class="prize-card"><div class="div-title">Match 5 + Bonus</div><div class="div-match">5 Main Numbers + Bonus Ball</div><span class="div-odds">Odds: 1 in 1,789,596</span></div>
+        <div class="prize-card"><div class="div-title">Match 5</div><div class="div-match">5 Main Numbers</div><span class="div-odds">Odds: 1 in 44,740</span></div>
+        <div class="prize-card"><div class="div-title">Match 4 + Bonus</div><div class="div-match">4 Main Numbers + Bonus Ball</div><span class="div-odds">Odds: 1 in 17,896</span></div>
+        <div class="prize-card"><div class="div-title">Match 4</div><div class="div-match">4 Main Numbers</div><span class="div-odds">Odds: 1 in 918</span></div>
+        <div class="prize-card"><div class="div-title">Match 3 + Bonus</div><div class="div-match">3 Main Numbers + Bonus Ball</div><span class="div-odds">Odds: 1 in 679</span></div>
+        <div class="prize-card"><div class="div-title">Match 3</div><div class="div-match">3 Main Numbers</div><span class="div-odds">Odds: 1 in 54</span></div>
+        <div class="prize-card"><div class="div-title">Match 2 + Bonus</div><div class="div-match">2 Main Numbers + Bonus Ball</div><span class="div-odds">Odds: 1 in 72</span></div>
+    </div>
+
+    <article>
+        <h2>The Popularity of the Irish Lotto</h2>
+        <p>The Irish National Lotto has gained worldwide fame, not just in Ireland but among international lottery enthusiasts. The reason is simple: it offers some of the most favorable jackpot odds for a national flagship game. With a 6/47 format, the odds of hitting the jackpot are significantly better than the UK National Lottery or EuroMillions.</p>
+        <p>Draws take place twice a week, every Wednesday and Saturday night. To play, you must choose 6 numbers from a pool of 1 to 47. During the draw, a total of 7 balls are selected—the first 6 are the main numbers, and the 7th is the Bonus Ball, which helps players win across several secondary prize tiers.</p>
+        
+        <h2>The Bonus Ball Advantage</h2>
+        <p>The Irish Lotto is unique because of how many prize divisions (8 in total) utilize the Bonus Ball. Even if you only match two main numbers, matching the Bonus Ball will still net you a prize. This results in a very high frequency of "small wins," keeping the game exciting for regular players.</p>
+        
+        <h2>A Global Favorite</h2>
+        <p>Because the jackpot is capped at a maximum of €19.06 million, once it reaches that limit, the excess prize money "flows down" to the lower prize tiers. This creates "must-be-won" style draws where secondary prizes can be significantly larger than usual. Our Irish Lotto generator provides a random set of 6 numbers to help you prepare your entries for the next draw.</p>
+    </article>
+</div>
+
+<script>
+    function generateIrish() {
+        const container = document.getElementById('balls-container');
+        container.innerHTML = '';
+        let numbers = [];
+        while(numbers.length < 6) {
+            let r = Math.floor(Math.random() * 47) + 1;
+            if(!numbers.includes(r)) numbers.push(r);
+        }
+        numbers.sort((a, b) => a - b).forEach(n => {
+            const ball = document.createElement('div');
+            ball.className = 'ball';
+            ball.innerText = n;
+            container.appendChild(ball);
+        });
+    }
+    window.onload = generateIrish;
+</script>
+</body>
+</html>
