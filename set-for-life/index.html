@@ -1,1 +1,84 @@
-/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set for Life Generator & Prize Odds | LottoGuru</title>
+    <style>
+        :root { --primary: #1a2a6c; --secondary: #b21f1f; --accent: #fdbb2d; --dark: #121212; --card: #1e1e1e; }
+        body { font-family: 'Segoe UI', sans-serif; background: #000; color: #fff; margin: 0; line-height: 1.6; }
+        header { background: linear-gradient(135deg, #7028e4, #e50914); padding: 40px 20px; text-align: center; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        
+        /* GENERATOR */
+        .gen-section { background: var(--card); padding: 30px; border-radius: 20px; text-align: center; margin-bottom: 30px; border: 1px solid #444; }
+        .ball-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .ball { width: 45px; height: 45px; background: radial-gradient(circle at 15px 15px, #8e2de2, #4a00e0); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.5); border: 1px solid #ffffff44; }
+        button { background: #27ae60; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: 0.3s; }
+        button:hover { background: #2ecc71; transform: scale(1.05); }
+
+        /* PRIZE CARDS */
+        .prize-card { background: var(--card); margin-bottom: 12px; padding: 18px; border-radius: 12px; border-left: 5px solid #8e2de2; }
+        .div-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 4px; color: #fff; }
+        .div-match { color: #aaa; font-size: 0.9rem; }
+        .div-odds { color: #8e2de2; font-weight: 700; margin-top: 5px; display: block; }
+
+        /* ARTICLE SECTION */
+        article { background: #111; padding: 35px; border-radius: 20px; margin-top: 40px; color: #ccc; border: 1px solid #222; }
+        h2 { color: #fff; border-bottom: 2px solid #8e2de2; padding-bottom: 5px; display: inline-block; margin-top: 25px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>💜 Set for Life Australia</h1>
+    <p>$20,000 Every Month for 20 Years - Odds & Generator</p>
+</header>
+
+<div class="container">
+    <div class="gen-section">
+        <div class="ball-row" id="balls-container"></div>
+        <button onclick="generateSet()">Generate Smart Picks</button>
+    </div>
+
+    <h2>Winning Combinations</h2>
+    <div id="prize-list">
+        <div class="prize-card"><div class="div-title">Division 1</div><div class="div-match">7 Winning Numbers</div><span class="div-odds">$20,000/month for 20 Years (Odds 1:38,320,568)</span></div>
+        <div class="prize-card"><div class="div-title">Division 2</div><div class="div-match">6 Winning Numbers + 1 Supplementary</div><span class="div-odds">$5,000/month for 1 Year (Odds 1:2,737,184)</span></div>
+        <div class="prize-card"><div class="div-title">Division 3</div><div class="div-match">6 Winning Numbers</div><span class="div-odds">Lump Sum (Odds 1:156,411)</span></div>
+        <div class="prize-card"><div class="div-title">Division 8</div><div class="div-match">3 Winning Numbers + 1 Supplementary</div><span class="div-odds">Lump Sum (Odds 1:80)</span></div>
+    </div>
+
+    <article>
+        <h2>What Makes Set for Life Unique?</h2>
+        <p>Set for Life is Australia's only daily lottery game that offers an annuity prize. Unlike Powerball or Oz Lotto, which pay out millions in one go, the Set for Life Division 1 prize is <strong>$20,000 every single month for 20 years</strong>. This creates a long-term financial safety net that winners often describe as "winning every month."</p>
+        <p>The draw takes place every night at 9:00pm AEST. To play, you select 7 numbers from 1 to 44. During the draw, 9 balls are selected: the first 7 are the winning numbers and the final 2 are supplementary numbers.</p>
+        
+        <h2>The Division 2 Advantage</h2>
+        <p>A major draw for many players is the unique Division 2 prize. If you match 6 main numbers and one supplementary number, you win $5,000 a month for an entire year. This "bonus" annuity makes the secondary prize tier much more exciting than the standard one-off payments found in other games.</p>
+        
+        <h2>Daily Draws, Weekly Chances</h2>
+        <p>When you purchase a Set for Life entry, you aren't just buying into one draw. Each standard ticket gives you entry into seven consecutive daily draws—meaning you have seven chances to win with a single set of numbers across an entire week. The overall odds of winning any prize in a draw are 1 in 50, providing frequent smaller wins for many players.</p>
+    </article>
+</div>
+
+<script>
+    function generateSet() {
+        const container = document.getElementById('balls-container');
+        container.innerHTML = '';
+        let numbers = [];
+        while(numbers.length < 7) {
+            let r = Math.floor(Math.random() * 44) + 1;
+            if(!numbers.includes(r)) numbers.push(r);
+        }
+        numbers.sort((a, b) => a - b).forEach(n => {
+            const ball = document.createElement('div');
+            ball.className = 'ball';
+            ball.innerText = n;
+            container.appendChild(ball);
+        });
+    }
+    window.onload = generateSet;
+</script>
+</body>
+</html>
