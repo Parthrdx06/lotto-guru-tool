@@ -3,39 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super 66 Generator | LottoGuru</title>
+    <title>Super 66 Generator & How to Play | LottoGuru</title>
     <style>
-        :root { --primary: #ffcc00; --dark: #121212; --card: #1e1e1e; }
-        body { font-family: 'Segoe UI', sans-serif; background: #000; color: #fff; text-align: center; padding: 20px; }
-        .container { max-width: 600px; margin: auto; background: var(--card); padding: 40px; border-radius: 20px; border: 2px solid var(--primary); }
-        .ball-row { display: flex; justify-content: center; gap: 10px; margin: 30px 0; }
-        .digit { width: 50px; height: 50px; background: white; color: black; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; border: 2px solid #ccc; }
-        button { background: var(--primary); color: #000; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; }
+        :root { --primary: #ffcc00; --secondary: #333; --dark: #121212; --card: #1e1e1e; }
+        body { font-family: 'Segoe UI', sans-serif; background: #000; color: #fff; margin: 0; line-height: 1.6; }
+        header { background: linear-gradient(135deg, #cc9900, #886600); padding: 40px 20px; text-align: center; border-bottom: 4px solid var(--primary); }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        
+        /* GENERATOR */
+        .gen-section { background: var(--card); padding: 30px; border-radius: 20px; text-align: center; margin-bottom: 30px; border: 1px solid #444; }
+        .ball-row { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; }
+        .digit { width: 45px; height: 55px; background: #fff; color: #000; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.5rem; border-bottom: 4px solid #aaa; }
+        button { background: var(--primary); color: #000; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: 0.3s; }
+        button:hover { background: #fff; transform: scale(1.05); }
+
+        /* PRIZE TABLE */
+        .prize-card { background: var(--card); margin-bottom: 12px; padding: 18px; border-radius: 12px; border-left: 5px solid var(--primary); display: flex; justify-content: space-between; align-items: center; }
+        .div-title { font-weight: 800; color: #fff; }
+        .div-val { color: var(--primary); font-weight: 700; }
+
+        /* ARTICLE SECTION */
+        article { background: #111; padding: 35px; border-radius: 20px; margin-top: 40px; color: #ccc; border: 1px solid #222; }
+        h2 { color: #fff; border-bottom: 2px solid var(--primary); padding-bottom: 5px; display: inline-block; margin-top: 25px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎰 Super 66 Generator</h1>
-        <p>Your unique 6-digit combination:</p>
+
+<header>
+    <h1>🎰 Super 66</h1>
+    <p>The Australian Add-On Game with a 6-Digit Twist</p>
+</header>
+
+<div class="container">
+    <div class="gen-section">
+        <p>Your Randomly Generated 6-Digit Combination:</p>
         <div class="ball-row" id="digit-container">
-            <div class="digit">-</div><div class="digit">-</div><div class="digit">-</div>
-            <div class="digit">-</div><div class="digit">-</div><div class="digit">-</div>
+            <div class="digit">?</div><div class="digit">?</div><div class="digit">?</div>
+            <div class="digit">?</div><div class="digit">?</div><div class="digit">?</div>
         </div>
-        <button onclick="generate66()">Generate Number</button>
+        <button onclick="generate66()">Generate Super 66 Number</button>
     </div>
 
-    <script>
-        function generate66() {
-            const container = document.getElementById('digit-container');
-            container.innerHTML = '';
-            for(let i=0; i<6; i++) {
-                let num = Math.floor(Math.random() * 10); // 0 to 9
-                let d = document.createElement('div');
-                d.className = 'digit';
-                d.innerText = num;
-                container.appendChild(d);
-            }
+    <h2>Ways to Win</h2>
+    <div id="prize-list">
+        <div class="prize-card"><span class="div-title">Match 6 (In Order)</span><span class="div-val">JACKPOT</span></div>
+        <div class="prize-card"><span class="div-title">First or Last 5 Digits</span><span class="div-val">$6,666</span></div>
+        <div class="prize-card"><span class="div-title">First or Last 4 Digits</span><span class="div-val">$666</span></div>
+        <div class="prize-card"><span class="div-title">First or Last 2 Digits</span><span class="div-val">$6.60</span></div>
+    </div>
+
+    <article>
+        <h2>What is Super 66?</h2>
+        <p>Super 66 is a unique lottery game in Australia that is played as an "add-on" to major draws like Saturday Lotto, Monday & Wednesday Lotto, Oz Lotto, and Powerball. Unlike other games where you choose numbers from a pool, in Super 66, you are assigned a random six-digit number.</p>
+        
+        
+
+        <h2>How the Drawing Works</h2>
+        <p>During the draw, six balls are chosen one by one from six separate machines, each containing balls numbered 0 to 9. This means that, unlike other lotteries, the same number can appear multiple times (for example, 5-5-2-1-5-0).</p>
+        
+        <h2>How to Win</h2>
+        <p>To win the Jackpot (Division 1), your six-digit number must match the drawn numbers in the <strong>exact same order</strong>. However, you can still win smaller prizes by matching the first or last 2, 3, 4, or 5 digits. The beauty of Super 66 is that you can win from either end of your number sequence!</p>
+        
+        <h2>Why Use Our Generator?</h2>
+        <p>While the lottery terminal usually gives you a "Quick Pick," many players like to generate their own numbers to see which combinations feel "lucky" before they head to the store or play online. Our generator uses a truly random 0-9 algorithm for each of the six positions, mimicking the actual draw machines.</p>
+    </article>
+</div>
+
+<script>
+    function generate66() {
+        const container = document.getElementById('digit-container');
+        container.innerHTML = '';
+        for(let i=0; i<6; i++) {
+            let num = Math.floor(Math.random() * 10);
+            let d = document.createElement('div');
+            d.className = 'digit';
+            d.innerText = num;
+            container.appendChild(d);
         }
-    </script>
+    }
+    window.onload = generate66;
+</script>
 </body>
 </html>
