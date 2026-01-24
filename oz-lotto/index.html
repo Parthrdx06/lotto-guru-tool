@@ -1,1 +1,89 @@
-/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oz Lotto Generator & Official Prize Odds | LottoGuru</title>
+    <style>
+        :root { --primary: #1a2a6c; --secondary: #b21f1f; --accent: #fdbb2d; --dark: #121212; --card: #1e1e1e; }
+        body { font-family: 'Segoe UI', sans-serif; background: #000; color: #fff; margin: 0; line-height: 1.6; }
+        header { background: linear-gradient(135deg, #fdbb2d, #b21f1f); padding: 40px 20px; text-align: center; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        
+        /* GENERATOR */
+        .gen-section { background: var(--card); padding: 30px; border-radius: 20px; text-align: center; margin-bottom: 30px; border: 1px solid #333; }
+        .ball-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .ball { width: 45px; height: 45px; background: radial-gradient(circle at 15px 15px, #fdbb2d, #ff8c00); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        button { background: #27ae60; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: 0.3s; }
+        button:hover { background: #2ecc71; transform: scale(1.05); }
+
+        /* PRIZE CARDS (DARK STYLE) */
+        .prize-card { background: var(--card); margin-bottom: 12px; padding: 18px; border-radius: 12px; border-left: 5px solid #fdbb2d; }
+        .div-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 4px; color: #fff; }
+        .div-match { color: #aaa; font-size: 0.9rem; }
+        .div-odds { color: #fdbb2d; font-weight: 700; margin-top: 5px; display: block; }
+
+        /* ARTICLE SECTION */
+        article { background: #111; padding: 35px; border-radius: 20px; margin-top: 40px; color: #ccc; border: 1px solid #222; }
+        h2 { color: #fff; border-bottom: 2px solid #fdbb2d; padding-bottom: 5px; display: inline-block; margin-top: 25px; }
+        p { margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🟡 Oz Lotto Australia</h1>
+    <p>Professional Odds Breakdown & Smart Number Generator</p>
+</header>
+
+<div class="container">
+    <div class="gen-section">
+        <div class="ball-row" id="balls-container"></div>
+        <button onclick="generateOz()">Generate Oz Lotto Numbers</button>
+    </div>
+
+    <h2>Winning Combinations</h2>
+    <div id="prize-list">
+        <div class="prize-card"><div class="div-title">Division 1</div><div class="div-match">7 Winning Numbers</div><span class="div-odds">Odds: 1 in 62,891,499</span></div>
+        <div class="prize-card"><div class="div-title">Division 2</div><div class="div-match">6 Winning Numbers + 1 Supplementary</div><span class="div-odds">Odds: 1 in 2,994,834</span></div>
+        <div class="prize-card"><div class="div-title">Division 3</div><div class="div-match">6 Winning Numbers</div><span class="div-odds">Odds: 1 in 242,825</span></div>
+        <div class="prize-card"><div class="div-title">Division 4</div><div class="div-match">5 Winning Numbers + 1 Supplementary</div><span class="div-odds">Odds: 1 in 26,271</span></div>
+        <div class="prize-card"><div class="div-title">Division 5</div><div class="div-match">5 Winning Numbers</div><span class="div-odds">Odds: 1 in 4,497</span></div>
+        <div class="prize-card"><div class="div-title">Division 6</div><div class="div-match">4 Winning Numbers</div><span class="div-odds">Odds: 1 in 182</span></div>
+        <div class="prize-card"><div class="div-title">Division 7</div><div class="div-match">3 Winning Numbers + 1 Supplementary</div><span class="div-odds">Odds: 1 in 71</span></div>
+    </div>
+
+    <article>
+        <h2>How to Play Oz Lotto</h2>
+        <p>Oz Lotto is Australia's first national lottery, famous for its Tuesday night draws and massive "Big Tuesday" jackpots. Following a major game update in May 2022, the game now requires players to select 7 numbers from a pool of 1 to 47.</p>
+        <p>Every Tuesday night at approximately 8:30pm AEST, 10 balls are drawn from the barrel. The first 7 balls are the main winning numbers used for the Division 1 jackpot, while the final 3 balls are supplementary numbers used to determine prizes in Divisions 2, 4, and 7.</p>
+        
+        <h2>Oz Lotto Prize Tiers & Odds</h2>
+        <p>There are seven different ways to win a prize in Oz Lotto. While the jackpot odds for Division 1 are approximately 1 in 62.8 million, the overall chance of winning any prize on a single line is much higher at 1 in 51.</p>
+        <p>The minimum winning requirement is just 3 main winning numbers plus 1 supplementary number (Division 7). All winnings from official Australian lottery draws are paid out as tax-free lump sums, though any interest earned on those winnings may be subject to standard income tax.</p>
+        
+        <h2>Using the Smart Pick Generator</h2>
+        <p>Our Oz Lotto generator uses a randomized algorithm to provide you with a unique set of 7 numbers ranging from 1 to 47. While no tool can predict a random draw, using a generator helps players avoid "birthday" patterns or sequential numbers that are often over-played by the general public.</p>
+    </article>
+</div>
+
+<script>
+    function generateOz() {
+        const container = document.getElementById('balls-container');
+        container.innerHTML = '';
+        let numbers = [];
+        while(numbers.length < 7) {
+            let r = Math.floor(Math.random() * 47) + 1;
+            if(!numbers.includes(r)) numbers.push(r);
+        }
+        numbers.sort((a, b) => a - b).forEach(n => {
+            const ball = document.createElement('div');
+            ball.className = 'ball';
+            ball.innerText = n;
+            container.appendChild(ball);
+        });
+    }
+    window.onload = generateOz;
+</script>
+</body>
+</html>
