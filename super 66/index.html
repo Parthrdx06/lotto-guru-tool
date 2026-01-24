@@ -3,85 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>super 66 Generator & Exact Order Odds | LottoGuru</title>
+    <title>Super 66 Generator | LottoGuru</title>
     <style>
-        :root { --primary: #1a2a6c; --secondary: #b21f1f; --accent: #fdbb2d; --dark: #121212; --card: #1e1e1e; }
-        body { font-family: 'Segoe UI', sans-serif; background: #000; color: #fff; margin: 0; line-height: 1.6; }
-        header { background: linear-gradient(135deg, #cb2d3e, #ef473a); padding: 40px 20px; text-align: center; }
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        
-        /* GENERATOR */
-        .gen-section { background: var(--card); padding: 30px; border-radius: 20px; text-align: center; margin-bottom: 30px; border: 1px solid #444; }
-        .ball-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px; }
-        .ball { width: 50px; height: 50px; background: radial-gradient(circle at 15px 15px, #ef473a, #cb2d3e); color: #fff; border-radius: 10px; display: flex; flex-items: center; justify-content: center; align-items: center; font-weight: 800; font-size: 1.3rem; box-shadow: 0 4px 10px rgba(0,0,0,0.5); border: 1px solid #ffffff33; }
-        .ball-label { font-size: 0.7rem; color: #ffcccc; margin-top: 5px; display: block; }
-        button { background: #27ae60; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: 0.3s; }
-        button:hover { background: #2ecc71; transform: scale(1.05); }
-
-        /* PRIZE CARDS */
-        .prize-card { background: var(--card); margin-bottom: 12px; padding: 18px; border-radius: 12px; border-left: 5px solid #ef473a; }
-        .div-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 4px; color: #fff; }
-        .div-match { color: #aaa; font-size: 0.9rem; }
-        .div-odds { color: #ef473a; font-weight: 700; margin-top: 5px; display: block; }
-
-        /* ARTICLE SECTION */
-        article { background: #111; padding: 35px; border-radius: 20px; margin-top: 40px; color: #ccc; border: 1px solid #222; }
-        h2 { color: #fff; border-bottom: 2px solid #ef473a; padding-bottom: 5px; display: inline-block; margin-top: 25px; }
+        :root { --primary: #ffcc00; --dark: #121212; --card: #1e1e1e; }
+        body { font-family: 'Segoe UI', sans-serif; background: #000; color: #fff; text-align: center; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: var(--card); padding: 40px; border-radius: 20px; border: 2px solid var(--primary); }
+        .ball-row { display: flex; justify-content: center; gap: 10px; margin: 30px 0; }
+        .digit { width: 50px; height: 50px; background: white; color: black; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; border: 2px solid #ccc; }
+        button { background: var(--primary); color: #000; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>🎯 super 66 Australia</h1>
-    <p>Predict the Order - Exact Match Odds & Generator</p>
-</header>
-
-<div class="container">
-    <div class="gen-section">
-        <p style="color: #ef473a; font-weight: bold;">Predicting the first 4 balls in order:</p>
-        <div class="ball-row" id="balls-container"></div>
-        <button onclick="generateStrike()">Generate Strike 4 Pick</button>
+    <div class="container">
+        <h1>🎰 Super 66 Generator</h1>
+        <p>Your unique 6-digit combination:</p>
+        <div class="ball-row" id="digit-container">
+            <div class="digit">-</div><div class="digit">-</div><div class="digit">-</div>
+            <div class="digit">-</div><div class="digit">-</div><div class="digit">-</div>
+        </div>
+        <button onclick="generate66()">Generate Number</button>
     </div>
 
-    <h2>Winning Combinations</h2>
-    <div id="prize-list">
-        <div class="prize-card"><div class="div-title">Strike 4</div><div class="div-match">Match first 4 balls in exact order</div><span class="div-odds">Odds: 1 in 3,575,880</span></div>
-        <div class="prize-card"><div class="div-title">Strike 3</div><div class="div-match">Match any 3 of the first 4 in exact order</div><span class="div-odds">Odds: 1 in 33,110</span></div>
-        <div class="prize-card"><div class="div-title">Strike 2</div><div class="div-match">Match any 2 of the first 4 in exact order</div><span class="div-odds">Odds: 1 in 1,110</span></div>
-        <div class="prize-card"><div class="div-title">Strike 1</div><div class="div-match">Match the 1st ball in exact order</div><span class="div-odds">Odds: 1 in 45</span></div>
-    </div>
-
-    <article>
-        <h2>What is super 66?</h2>
-        <p>super 66 is an exciting add-on game played alongside the Monday, Wednesday, and Saturday Lotto draws (and Weekday Windfall). Unlike the main games where the order doesn't matter, super 66 is all about the <strong>exact order</strong> in which the balls are drawn from the barrel.</p>
-        <p>To win the top prize, known as "Strike 4," you must correctly predict the first four balls drawn in their correct sequence. If no one wins Strike 4, the prize money jackpots to the next draw, often leading to significant prize pools.</p>
-        
-        <h2>Ways to Win Strike</h2>
-        <p>You don't have to match all four to win a prize. super 66 offers four prize levels. You can win "Strike 1" simply by matching the very first ball drawn. "Strike 2" and "Strike 3" require you to match the first two or three balls in their exact positions respectively.</p>
-        
-        <h2>Smart Pick Strategy</h2>
-        <p>Because super 66 is dependent on the order of the main draw, many players use our generator to find a sequence that feels "balanced." While every combination has the same mathematical probability, a random generator helps you avoid human bias—like picking 1, 2, 3, 4—which many people play. By using a unique sequence, you reduce the likelihood of sharing a jackpot with other winners.</p>
-    </article>
-</div>
-
-<script>
-    function generateStrike() {
-        const container = document.getElementById('balls-container');
-        container.innerHTML = '';
-        let numbers = [];
-        // super 66 uses the 45 ball pool from the main lotto draws
-        while(numbers.length < 4) {
-            let r = Math.floor(Math.random() * 45) + 1;
-            if(!numbers.includes(r)) numbers.push(r);
+    <script>
+        function generate66() {
+            const container = document.getElementById('digit-container');
+            container.innerHTML = '';
+            for(let i=0; i<6; i++) {
+                let num = Math.floor(Math.random() * 10); // 0 to 9
+                let d = document.createElement('div');
+                d.className = 'digit';
+                d.innerText = num;
+                container.appendChild(d);
+            }
         }
-        // Note: No sorting for Strike because order matters!
-        numbers.forEach((n, index) => {
-            const ballWrapper = document.createElement('div');
-            ballWrapper.innerHTML = `<div class="ball">${n}</div><span class="ball-label">Pos ${index + 1}</span>`;
-            container.appendChild(ballWrapper);
-        });
-    }
-    window.onload = generateStrike;
-</script>
+    </script>
 </body>
 </html>
