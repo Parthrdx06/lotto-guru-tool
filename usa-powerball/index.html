@@ -1,1 +1,94 @@
-/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USA Powerball Generator & Jackpot Odds | LottoGuru</title>
+    <style>
+        :root { --primary: #1a2a6c; --secondary: #b21f1f; --accent: #fdbb2d; --dark: #121212; --card: #1e1e1e; --us-red: #e01933; --us-blue: #002868; }
+        body { font-family: 'Segoe UI', sans-serif; background: #000; color: #fff; margin: 0; line-height: 1.6; }
+        header { background: linear-gradient(135deg, var(--us-blue), var(--us-red)); padding: 40px 20px; text-align: center; border-bottom: 4px solid #fff; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        
+        /* GENERATOR */
+        .gen-section { background: var(--card); padding: 30px; border-radius: 20px; text-align: center; margin-bottom: 30px; border: 1px solid #444; }
+        .ball-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .ball { width: 45px; height: 45px; background: radial-gradient(circle at 15px 15px, #ffffff, #cccccc); color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; border: 1px solid #999; }
+        .pb-ball { background: radial-gradient(circle at 15px 15px, var(--us-red), #8b0000); color: #fff; border: 1px solid #ff0000; }
+        button { background: var(--us-blue); color: #fff; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: 0.3s; border: 2px solid #fff; }
+        button:hover { background: #fff; color: var(--us-blue); transform: scale(1.05); }
+
+        /* PRIZE CARDS */
+        .prize-card { background: var(--card); margin-bottom: 12px; padding: 18px; border-radius: 12px; border-left: 5px solid var(--us-red); }
+        .div-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 4px; color: #fff; }
+        .div-match { color: #aaa; font-size: 0.9rem; }
+        .div-val { color: var(--us-red); font-weight: 700; margin-top: 5px; display: block; }
+
+        /* ARTICLE SECTION */
+        article { background: #111; padding: 35px; border-radius: 20px; margin-top: 40px; color: #ccc; border: 1px solid #222; }
+        h2 { color: #fff; border-bottom: 2px solid var(--us-red); padding-bottom: 5px; display: inline-block; margin-top: 25px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🇺🇸 USA Powerball</h1>
+    <p>Home of the World Record $2.04 Billion Jackpot</p>
+</header>
+
+<div class="container">
+    <div class="gen-section">
+        <p>5 White Balls (1-69) + 1 Red Powerball (1-26):</p>
+        <div class="ball-row" id="balls-container"></div>
+        <button onclick="generatePB()">Generate Powerball Quick Pick</button>
+    </div>
+
+    <h2>Ways to Win & Odds</h2>
+    <div id="prize-list">
+        <div class="prize-card"><div class="div-title">Grand Prize (Jackpot)</div><div class="div-match">5 White Balls + Powerball</div><span class="div-val">Odds 1 in 292,201,338</span></div>
+        <div class="prize-card"><div class="div-title">Match 5</div><div class="div-match">5 White Balls only</div><span class="div-val">$1,000,000 (Odds 1 in 11,688,054)</span></div>
+        <div class="prize-card"><div class="div-title">Match 4 + PB</div><div class="div-match">4 White Balls + Powerball</div><span class="div-val">$50,000 (Odds 1 in 913,129)</span></div>
+        <div class="prize-card"><div class="div-title">Powerball Only</div><div class="div-match">Match the Red Ball only</div><span class="div-val">$4 (Odds 1 in 38)</span></div>
+    </div>
+
+    <article>
+        <h2>The World's Biggest Lottery</h2>
+        <p>USA Powerball is the undisputed king of lotteries. In November 2022, it set the world record for the largest jackpot in history at <strong>$2.04 billion</strong>, won by a single ticket holder in California. Even more recently, in late 2025, it produced another massive $1.8 billion winner, cementing its reputation for creating instant billionaires.</p>
+        
+        <h2>How the Game Works</h2>
+        <p>To play Powerball, you select five numbers from a pool of 1 to 69 (the white balls) and one number from a pool of 1 to 26 (the red Powerball). Drawings are held three times a week—Monday, Wednesday, and Saturday—at 10:59 p.m. ET in Tallahassee, Florida.</p>
+        
+        <h2>Power Play and Double Play</h2>
+        <p>For an extra $1, players can add the "Power Play" feature, which multiplies non-jackpot prizes by up to 10 times. There is also "Double Play," an add-on that lets you play your numbers in a second drawing immediately following the main one, with a top prize of $10 million. These features make it possible to turn a small $50,000 win into a $500,000 windfall.</p>
+    </article>
+</div>
+
+<script>
+    function generatePB() {
+        const container = document.getElementById('balls-container');
+        container.innerHTML = '';
+        
+        // Generate 5 White Balls (1-69)
+        let whites = [];
+        while(whites.length < 5) {
+            let r = Math.floor(Math.random() * 69) + 1;
+            if(!whites.includes(r)) whites.push(r);
+        }
+        whites.sort((a, b) => a - b).forEach(n => {
+            const ball = document.createElement('div');
+            ball.className = 'ball';
+            ball.innerText = n;
+            container.appendChild(ball);
+        });
+
+        // Generate 1 Red Powerball (1-26)
+        let pb = Math.floor(Math.random() * 26) + 1;
+        const pball = document.createElement('div');
+        pball.className = 'ball pb-ball';
+        pball.innerText = pb;
+        container.appendChild(pball);
+    }
+    window.onload = generatePB;
+</script>
+</body>
+</html>
