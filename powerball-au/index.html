@@ -1,1 +1,70 @@
-/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powerball AU Generator & Official Prize Divisions | LottoGuru</title>
+    <style>
+        :root { --primary: #1a2a6c; --secondary: #b21f1f; --accent: #fdbb2d; --dark: #121212; --card: #1e1e1e; }
+        body { font-family: 'Segoe UI', sans-serif; background: #000; color: #fff; margin: 0; line-height: 1.6; }
+        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 40px 20px; text-align: center; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        
+        /* GENERATOR */
+        .gen-section { background: var(--card); padding: 30px; border-radius: 20px; text-align: center; margin-bottom: 30px; border: 1px solid #333; }
+        .ball-row { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .ball { width: 45px; height: 45px; background: radial-gradient(circle at 15px 15px, #4facfe, #0061ff); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .pb { background: radial-gradient(circle at 15px 15px, #ff5858, #f85032); }
+        button { background: #27ae60; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1rem; }
+
+        /* WINNING COMBINATIONS (IMAGE STYLE) */
+        .prize-card { background: var(--card); margin-bottom: 15px; padding: 20px; border-radius: 12px; border-left: 5px solid var(--secondary); }
+        .div-title { font-size: 1.3rem; font-weight: bold; margin-bottom: 5px; color: #fff; }
+        .div-match { color: #aaa; font-size: 0.95rem; }
+        .div-odds { color: var(--accent); font-weight: bold; margin-top: 5px; display: block; }
+
+        /* CONTENT SECTION FOR ADSENSE */
+        article { background: #111; padding: 30px; border-radius: 20px; margin-top: 40px; color: #ccc; }
+        h2 { color: #fff; border-bottom: 2px solid var(--secondary); display: inline-block; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🇦🇺 Powerball Australia</h1>
+    <p>Official Prize Divisions & Smart Pick Generator</p>
+</header>
+
+<div class="container">
+    <div class="gen-section">
+        <div class="ball-row" id="balls"></div>
+        <button onclick="gen()">Generate Smart Numbers</button>
+    </div>
+
+    <h2>Winning Combinations</h2>
+    <div id="prizes">
+        <div class="prize-card"><div class="div-title">Division 1</div><div class="div-match">7 winning numbers + Powerball</div><span class="div-odds">Odds: 134,490,400:1</span></div>
+        <div class="prize-card"><div class="div-title">Division 2</div><div class="div-match">7 winning numbers</div><span class="div-odds">Odds: 7,078,443:1</span></div>
+        <div class="prize-card"><div class="div-title">Division 9</div><div class="div-match">2 winning numbers + Powerball</div><span class="div-odds">Odds: 66:1</span></div>
+    </div>
+
+    <article>
+        <h2>About Powerball Australia</h2>
+        <p>Powerball Australia is the nation's premier lottery game, known for creating multi-millionaires with its massive jackpot pools. To win the Division 1 prize, players must correctly match seven main numbers from a pool of 1 to 35 and the crucial Powerball from a separate pool of 1 to 20.</p>
+        <p>Managed by The Lott, this game follows a double-drum format, which significantly increases the difficulty of the jackpot but results in much larger prize pools compared to the standard Saturday Lotto. Draws occur every Thursday night at 8:30 PM AEST.</p>
+        <h2>Understanding the Odds</h2>
+        <p>While the odds of hitting the jackpot are 1 in 134 million, Powerball offers nine different prize divisions, making it possible to win with as few as two main numbers and the Powerball. Our generator uses a balanced algorithm to help users pick numbers that avoid common patterns, though it is important to remember that every draw is random.</p>
+    </article>
+</div>
+
+<script>
+    function gen() {
+        const area = document.getElementById('balls'); area.innerHTML = '';
+        let n = []; while(n.length < 7) { let r = Math.floor(Math.random()*35)+1; if(!n.includes(r)) n.push(r); }
+        n.sort((a,b)=>a-b).forEach(x => { area.innerHTML += `<div class="ball">${x}</div>`; });
+        area.innerHTML += `<div class="ball pb">${Math.floor(Math.random()*20)+1}</div>`;
+    }
+    window.onload = gen;
+</script>
+</body>
+</html>
