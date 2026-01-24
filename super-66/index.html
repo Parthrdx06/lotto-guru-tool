@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>super-66 Generator & How to Play | LottoGuru</title>
+    <title>Super 66 Generator & Official Guide | LottoGuru</title>
     <style>
         :root { --primary: #ffcc00; --secondary: #333; --dark: #121212; --card: #1e1e1e; }
         body { font-family: 'Segoe UI', sans-serif; background: #000; color: #fff; margin: 0; line-height: 1.6; }
@@ -11,61 +11,106 @@
         .container { max-width: 800px; margin: 0 auto; padding: 20px; }
         
         /* GENERATOR */
-        .gen-section { background: var(--card); padding: 30px; border-radius: 20px; text-align: center; margin-bottom: 30px; border: 1px solid #444; }
+        .gen-section { background: var(--card); padding: 30px; border-radius: 20px; text-align: center; margin-bottom: 30px; border: 1px solid #444; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .ball-row { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; }
         .digit { width: 45px; height: 55px; background: #fff; color: #000; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.5rem; border-bottom: 4px solid #aaa; }
         button { background: var(--primary); color: #000; border: none; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1rem; transition: 0.3s; }
         button:hover { background: #fff; transform: scale(1.05); }
 
-        /* PRIZE TABLE */
-        .prize-card { background: var(--card); margin-bottom: 12px; padding: 18px; border-radius: 12px; border-left: 5px solid var(--primary); display: flex; justify-content: space-between; align-items: center; }
-        .div-title { font-weight: 800; color: #fff; }
-        .div-val { color: var(--primary); font-weight: 700; }
+        /* WINNING COMBINATIONS TABLE */
+        .table-container { background: var(--card); border-radius: 15px; overflow: hidden; margin-top: 20px; border: 1px solid #333; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th { background: #333; color: var(--primary); padding: 15px; font-size: 0.9rem; }
+        td { padding: 15px; border-bottom: 1px solid #222; font-size: 0.95rem; }
+        .match-highlight { color: var(--primary); font-weight: bold; font-family: monospace; }
 
         /* ARTICLE SECTION */
         article { background: #111; padding: 35px; border-radius: 20px; margin-top: 40px; color: #ccc; border: 1px solid #222; }
         h2 { color: #fff; border-bottom: 2px solid var(--primary); padding-bottom: 5px; display: inline-block; margin-top: 25px; }
+        .info-box { background: rgba(255, 204, 0, 0.1); border-left: 4px solid var(--primary); padding: 15px; margin: 20px 0; border-radius: 0 10px 10px 0; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>🎰 super-66</h1>
-    <p>The Australian Add-On Game with a 6-Digit Twist</p>
+    <h1>🎰 Super 66</h1>
+    <p>The Australian Add-On Game: 6 Machines, 6 Digits</p>
 </header>
 
 <div class="container">
     <div class="gen-section">
-        <p>Your Randomly Generated 6-Digit Combination:</p>
+        <p>Click below to generate your 6-digit combination:</p>
         <div class="ball-row" id="digit-container">
             <div class="digit">?</div><div class="digit">?</div><div class="digit">?</div>
             <div class="digit">?</div><div class="digit">?</div><div class="digit">?</div>
         </div>
-        <button onclick="generate66()">Generate super-66 Number</button>
+        <button onclick="generate66()">Generate Super 66 Number</button>
     </div>
 
-    <h2>Ways to Win</h2>
-    <div id="prize-list">
-        <div class="prize-card"><span class="div-title">Match 6 (In Order)</span><span class="div-val">JACKPOT</span></div>
-        <div class="prize-card"><span class="div-title">First or Last 5 Digits</span><span class="div-val">$6,666</span></div>
-        <div class="prize-card"><span class="div-title">First or Last 4 Digits</span><span class="div-val">$666</span></div>
-        <div class="prize-card"><span class="div-title">First or Last 2 Digits</span><span class="div-val">$6.60</span></div>
+    <h2>Official Winning Combinations</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Division</th>
+                    <th>How to Win (Matching Order)</th>
+                    <th>Fixed Prize</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Division 1</td>
+                    <td>Match all <span class="match-highlight">6</span> digits in exact order</td>
+                    <td>Jackpot (Min $66,666)</td>
+                </tr>
+                <tr>
+                    <td>Division 2</td>
+                    <td>Match first or last <span class="match-highlight">5</span> digits</td>
+                    <td>$6,666.00</td>
+                </tr>
+                <tr>
+                    <td>Division 3</td>
+                    <td>Match first or last <span class="match-highlight">4</span> digits</td>
+                    <td>$666.00</td>
+                </tr>
+                <tr>
+                    <td>Division 4</td>
+                    <td>Match first or last <span class="match-highlight">3</span> digits</td>
+                    <td>$66.00</td>
+                </tr>
+                <tr>
+                    <td>Division 5</td>
+                    <td>Match first or last <span class="match-highlight">2</span> digits</td>
+                    <td>$6.60</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <article>
-        <h2>What is super-66?</h2>
-        <p>super-66 is a unique lottery game in Australia that is played as an "add-on" to major draws like Saturday Lotto, Monday & Wednesday Lotto, Oz Lotto, and Powerball. Unlike other games where you choose numbers from a pool, in super-66, you are assigned a random six-digit number.</p>
-        
-        
+        <h2>The Ultimate Guide to Super 66</h2>
+        <p>Super 66 is one of Australia's most unique lottery games. Unlike "draw-style" games where you pick 6 or 7 numbers from a large pool, Super 66 is a <strong>raffle-style</strong> game where the goal is to match a specific 6-digit sequence.</p>
 
-        <h2>How the Drawing Works</h2>
-        <p>During the draw, six balls are chosen one by one from six separate machines, each containing balls numbered 0 to 9. This means that, unlike other lotteries, the same number can appear multiple times (for example, 5-5-2-1-5-0).</p>
+        <div class="info-box">
+            <strong>Pro Tip:</strong> You can play Super 66 as an add-on to Saturday Lotto, Weekday Windfall, Oz Lotto, and Powerball, or as a standalone game.
+        </div>
+
+        <h2>How the Numbers are Drawn</h2>
+        <p>Every Saturday night, shortly after the Saturday Lotto draw, the Super 66 numbers are determined. Six individual barrels are used, each containing 10 balls numbered 0 to 9. One ball is drawn from each barrel to create a unique 6-digit number sequence.</p>
         
-        <h2>How to Win</h2>
-        <p>To win the Jackpot (Division 1), your six-digit number must match the drawn numbers in the <strong>exact same order</strong>. However, you can still win smaller prizes by matching the first or last 2, 3, 4, or 5 digits. The beauty of super-66 is that you can win from either end of your number sequence!</p>
+        <h2>Winning from Both Ends</h2>
+        <p>The most important rule in Super 66 is that your numbers must match in the <strong>exact order</strong> they were drawn. You can win by matching digits starting from the <strong>left</strong> (the first digits) or the <strong>right</strong> (the last digits).</p>
+        <p>For example, if the winning number is <strong>1-2-3-4-5-6</strong>:</p>
+        <ul>
+            <li>If your ticket starts with <strong>1-2</strong>... you win Division 5!</li>
+            <li>If your ticket ends with ...<strong>5-6</strong>, you also win Division 5!</li>
+        </ul>
+
+        <h2>Odds of Winning</h2>
+        <p>Because there are 1,000,000 possible combinations (from 000,000 to 999,999), the odds of winning the Division 1 Jackpot are exactly <strong>1 in 1,000,000</strong>. The overall odds of winning any prize are much higher, at approximately 1 in 50.</p>
         
         <h2>Why Use Our Generator?</h2>
-        <p>While the lottery terminal usually gives you a "Quick Pick," many players like to generate their own numbers to see which combinations feel "lucky" before they head to the store or play online. Our generator uses a truly random 0-9 algorithm for each of the six positions, mimicking the actual draw machines.</p>
+        <p>Terminal "Quick Picks" are truly random, but many players enjoy the ritual of generating their own numbers. Our Super 66 tool uses six independent random number generators (0-9) to simulate the actual drawing process, giving you a fresh 6-digit sequence every time you click.</p>
     </article>
 </div>
 
@@ -81,6 +126,7 @@
             container.appendChild(d);
         }
     }
+    // Generate a number automatically when the page loads
     window.onload = generate66;
 </script>
 </body>
