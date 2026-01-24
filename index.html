@@ -3,56 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LottoGuru | 12 Global Lotteries & Full Prize Divisions</title>
+    <title>LottoGuru | Full 12-Lottery Professional Generator</title>
     <style>
         :root {
             --primary: #1a2a6c; --secondary: #b21f1f; --accent: #fdbb2d;
             --success: #27ae60; --light: #f4f7f6; --dark: #1e293b; --shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
-        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--light); margin: 0; color: var(--dark); line-height: 1.5; }
-        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 40px 20px; text-align: center; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light); margin: 0; color: var(--dark); }
+        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 30px; text-align: center; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
         
-        /* GRID SELECTION */
-        .lotto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 20px; }
-        .lotto-card { background: white; padding: 25px; border-radius: 16px; box-shadow: var(--shadow); cursor: pointer; text-align: center; transition: all 0.3s ease; border: 2px solid transparent; }
-        .lotto-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-        .flag { font-size: 2.5rem; display: block; margin-bottom: 10px; }
-        .lotto-card strong { font-size: 1.2rem; display: block; color: var(--primary); }
+        /* HOME GRID */
+        .lotto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+        .lotto-card { background: white; padding: 20px; border-radius: 12px; box-shadow: var(--shadow); cursor: pointer; text-align: center; border: 2px solid transparent; transition: 0.3s; }
+        .lotto-card:hover { border-color: var(--accent); transform: scale(1.02); }
+        .flag { font-size: 2.2rem; display: block; margin-bottom: 5px; }
 
-        /* DETAIL PAGE */
-        #detail-view { display: none; background: white; padding: 30px; border-radius: 20px; box-shadow: var(--shadow); margin-top: 10px; }
-        .btn-back { background: #f1f5f9; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; font-weight: 700; margin-bottom: 25px; color: var(--primary); transition: 0.2s; }
-        .btn-back:hover { background: #e2e8f0; }
+        /* DETAIL VIEW */
+        #detail-view { display: none; }
+        .btn-back { background: #e2e8f0; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; margin-bottom: 20px; }
 
-        /* GENERATOR */
-        .gen-box { background: #f8fafc; padding: 40px 20px; border-radius: 15px; text-align: center; border: 2px solid #e2e8f0; margin-bottom: 40px; }
-        .ball-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 25px 0; min-height: 60px; }
+        /* GENERATOR (TOP) */
+        .generator-section { background: white; padding: 30px; border-radius: 20px; box-shadow: var(--shadow); text-align: center; margin-bottom: 25px; border: 1px solid #e2e8f0; }
+        .ball-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 20px 0; min-height: 50px; }
         .ball {
-            width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: 800; font-size: 1.3rem;
+            width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 800; font-size: 1.1rem;
             background: radial-gradient(circle at 15px 15px, #4facfe, #0061ff);
-            box-shadow: 0 4px 10px rgba(0,97,255,0.3), inset -3px -3px 6px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        .ball.special { background: radial-gradient(circle at 15px 15px, #ff5858, #f85032); box-shadow: 0 4px 10px rgba(248,80,50,0.3), inset -3px -3px 6px rgba(0,0,0,0.3); }
-        .btn-gen { background: var(--success); color: white; border: none; padding: 18px 45px; border-radius: 50px; cursor: pointer; font-weight: bold; font-size: 1.2rem; box-shadow: 0 10px 20px rgba(39,174,96,0.2); transition: 0.2s; }
-        .btn-gen:hover { transform: scale(1.05); background: #2ecc71; }
+        .ball.special { background: radial-gradient(circle at 15px 15px, #ff5858, #f85032); }
+        .btn-gen { background: var(--success); color: white; border: none; padding: 15px 40px; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 1.1rem; }
 
-        /* PRIZE TABLE */
-        .prize-section-title { font-size: 1.5rem; color: var(--primary); border-bottom: 3px solid var(--accent); display: inline-block; margin-bottom: 20px; }
-        .prize-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        /* PRIZE DIVISIONS (UNDERNEATH) */
+        .prize-section { background: white; padding: 25px; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid #e2e8f0; }
+        .prize-table { width: 100%; border-collapse: collapse; }
         .prize-table tr { border-bottom: 1px solid #f1f5f9; }
-        .prize-table td { padding: 18px 10px; }
-        .div-label { font-weight: 800; color: var(--primary); font-size: 1.1rem; display: block; }
-        .match-info { color: #64748b; font-size: 0.95rem; display: block; margin-top: 4px; }
-        .odds-label { text-align: right; font-weight: 700; color: var(--dark); font-size: 1.05rem; }
+        .prize-table td { padding: 14px 8px; }
+        .div-name { font-weight: 800; color: var(--primary); font-size: 1rem; display: block; }
+        .match-text { color: #64748b; font-size: 0.85rem; display: block; }
+        .odds-text { text-align: right; font-weight: 700; font-size: 0.95rem; white-space: nowrap; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>🎱 LottoGuru Professional</h1>
-    <p>Live Odds & Smart Generator for All 12 Major Lotteries</p>
+    <h1>🎱 LottoGuru</h1>
+    <p>Professional Lottery Generator & Full Prize Analytics</p>
 </header>
 
 <div class="container">
@@ -61,103 +58,122 @@
     </div>
 
     <div id="detail-view">
-        <button class="btn-back" onclick="showHome()">← Back to Lotteries</button>
-        <div id="lotto-header"></div>
+        <button class="btn-back" onclick="showHome()">← Back</button>
+        <div id="lotto-title-area"></div>
 
-        <div class="gen-box">
-            <h3 id="gen-title">Generate Smart Picks</h3>
-            <div id="results-area"></div>
+        <div class="generator-section">
+            <div id="results-area"><p style="color:#94a3b8">Tap Generate for your smart picks</p></div>
             <button class="btn-gen" onclick="runGenerator()">Generate Numbers</button>
         </div>
 
-        <div class="prize-container">
-            <h3 class="prize-section-title">Winning Combinations & Odds</h3>
-            <div id="prize-table-content"></div>
+        <div class="prize-section">
+            <h3 style="color:var(--primary); margin-top:0;">Winning Divisions</h3>
+            <div id="prize-table-container"></div>
         </div>
     </div>
 </div>
 
 <script>
-    const lottoData = [
+    const lottoConfig = [
         { id: 'sat_lotto', name: 'Saturday Lotto', flag: '🇦🇺', format: [6, 45, 0, 0], prizes: [
-            {d: "Division 1", m: "6 main numbers", o: "8,145,060:1"},
-            {d: "Division 2", m: "5 main + 1 or 2 supplementary", o: "678,755:1"},
-            {d: "Division 3", m: "5 main numbers", o: "36,690:1"},
-            {d: "Division 4", m: "4 main numbers", o: "733:1"},
-            {d: "Division 5", m: "3 main + 1 or 2 supplementary", o: "298:1"},
-            {d: "Division 6", m: "3 main numbers", o: "53:1"}
+            {d: "Division 1", m: "6 Main", o: "8,145,060:1"},
+            {d: "Division 2", m: "5 Main + 1 or 2 Supps", o: "678,755:1"},
+            {d: "Division 3", m: "5 Main", o: "36,690:1"},
+            {d: "Division 4", m: "4 Main", o: "733:1"},
+            {d: "Division 5", m: "3 Main + 1 or 2 Supps", o: "298:1"},
+            {d: "Division 6", m: "3 Main", o: "53:1"}
         ]},
         { id: 'power_au', name: 'Powerball AU', flag: '🇦🇺', format: [7, 35, 1, 20], prizes: [
-            {d: "Division 1", m: "7 main + Powerball", o: "134,490,400:1"},
-            {d: "Division 2", m: "7 main numbers", o: "7,078,443:1"},
-            {d: "Division 3", m: "6 main + Powerball", o: "686,176:1"},
-            {d: "Division 4", m: "6 main numbers", o: "36,115:1"},
-            {d: "Division 5", m: "5 main + Powerball", o: "16,943:1"},
-            {d: "Division 6", m: "4 main + Powerball", o: "1,173:1"},
-            {d: "Division 7", m: "5 main numbers", o: "892:1"},
-            {d: "Division 8", m: "3 main + Powerball", o: "188:1"},
-            {d: "Division 9", m: "2 main + Powerball", o: "66:1"}
+            {d: "Division 1", m: "7 Main + Powerball", o: "134,490,400:1"},
+            {d: "Division 2", m: "7 Main", o: "7,078,443:1"},
+            {d: "Division 3", m: "6 Main + Powerball", o: "686,176:1"},
+            {d: "Division 4", m: "6 Main", o: "36,115:1"},
+            {d: "Division 5", m: "5 Main + Powerball", o: "16,943:1"},
+            {d: "Division 6", m: "4 Main + Powerball", o: "1,173:1"},
+            {d: "Division 7", m: "5 Main", o: "892:1"},
+            {d: "Division 8", m: "3 Main + Powerball", o: "188:1"},
+            {d: "Division 9", m: "2 Main + Powerball", o: "66:1"}
         ]},
         { id: 'oz_lotto', name: 'Oz Lotto', flag: '🇦🇺', format: [7, 47, 0, 0], prizes: [
-            {d: "Division 1", m: "7 main numbers", o: "62,891,499:1"},
-            {d: "Division 2", m: "6 main + 1 supplementary", o: "2,994,834:1"},
-            {d: "Division 3", m: "6 main numbers", o: "187,178:1"},
-            {d: "Division 4", m: "5 main + 1 supplementary", o: "25,640:1"},
-            {d: "Division 5", m: "5 main numbers", o: "3,205:1"},
-            {d: "Division 6", m: "4 main numbers", o: "161:1"},
-            {d: "Division 7", m: "3 main + 1 supplementary", o: "71:1"}
+            {d: "Division 1", m: "7 Main", o: "62,891,499:1"},
+            {d: "Division 2", m: "6 Main + 1 Supp", o: "2,994,834:1"},
+            {d: "Division 3", m: "6 Main", o: "187,178:1"},
+            {d: "Division 4", m: "5 Main + 1 Supp", o: "25,640:1"},
+            {d: "Division 5", m: "5 Main", o: "3,205:1"},
+            {d: "Division 6", m: "4 Main", o: "161:1"},
+            {d: "Division 7", m: "3 Main + 1 Supp", o: "71:1"}
         ]},
         { id: 'weekday', name: 'Weekday Windfall', flag: '🇦🇺', format: [6, 45, 0, 0], prizes: [
-            {d: "Division 1", m: "6 main numbers", o: "8,145,060:1"},
-            {d: "Division 2", m: "5 main + 1 supplementary", o: "678,755:1"},
-            {d: "Division 3", m: "5 main numbers", o: "36,690:1"},
-            {d: "Division 4", m: "4 main numbers", o: "733:1"},
-            {d: "Division 5", m: "3 main + 1 supplementary", o: "298:1"},
-            {d: "Division 6", m: "3 main numbers", o: "53:1"}
+            {d: "Division 1", m: "6 Main", o: "8,145,060:1"},
+            {d: "Division 2", m: "5 Main + 1 or 2 Supps", o: "678,755:1"},
+            {d: "Division 3", m: "5 Main", o: "36,690:1"},
+            {d: "Division 4", m: "4 Main", o: "733:1"},
+            {d: "Division 5", m: "3 Main + 1 or 2 Supps", o: "298:1"},
+            {d: "Division 6", m: "3 Main", o: "53:1"}
         ]},
         { id: 'set_life', name: 'Set for Life', flag: '🇦🇺', format: [7, 44, 0, 0], prizes: [
-            {d: "Division 1", m: "7 main numbers", o: "38,320,568:1"},
-            {d: "Division 2", m: "6 main + 1 supplementary", o: "2,400,000:1"},
-            {d: "Division 3", m: "6 main numbers", o: "170,000:1"},
-            {d: "Division 4", m: "5 main + 1 supplementary", o: "28,500:1"}
+            {d: "Division 1", m: "7 Main", o: "38,320,568:1"},
+            {d: "Division 2", m: "6 Main + 1 Supp", o: "2,400,000:1"},
+            {d: "Division 3", m: "6 Main", o: "170,000:1"},
+            {d: "Division 4", m: "5 Main + 1 Supp", o: "28,500:1"},
+            {d: "Division 5", m: "5 Main", o: "3,500:1"},
+            {d: "Division 6", m: "4 Main + 1 Supp", o: "1,100:1"},
+            {d: "Division 7", m: "4 Main", o: "160:1"},
+            {d: "Division 8", m: "3 Main + 1 Supp", o: "80:1"}
         ]},
         { id: 'lotto_strike', name: 'Lotto Strike', flag: '🇦🇺', format: [4, 45, 0, 0], prizes: [
-            {d: "Strike 4", m: "First 4 numbers in exact order", o: "3,575,880:1"},
-            {d: "Strike 3", m: "First 3 numbers in exact order", o: "33,110:1"},
-            {d: "Strike 2", m: "First 2 numbers in exact order", o: "1,110:1"},
-            {d: "Strike 1", m: "First 1 number in exact order", o: "45:1"}
+            {d: "Strike 4", m: "4 Numbers (Exact Order)", o: "3,575,880:1"},
+            {d: "Strike 3", m: "3 Numbers (Exact Order)", o: "33,110:1"},
+            {d: "Strike 2", m: "2 Numbers (Exact Order)", o: "1,110:1"},
+            {d: "Strike 1", m: "1 Number (Exact Order)", o: "45:1"}
         ]},
         { id: 'lucky_mega', name: 'Lucky Mega', flag: '🇦🇺', format: [1, 200000, 0, 0], prizes: [
-            {d: "Jackpot Prize", m: "Unique Ticket Match", o: "9,483,168:1"},
-            {d: "1st Prize", m: "Match Ticket Number", o: "200,000:1"}
+            {d: "Jackpot", m: "Ticket No + Jackpot Match", o: "9,483,168:1"},
+            {d: "1st Prize", m: "Ticket Number Match", o: "200,000:1"}
         ]},
         { id: 'irish_lotto', name: 'Irish Lotto', flag: '🇮🇪', format: [6, 47, 0, 0], prizes: [
-            {d: "Jackpot", m: "6 numbers", o: "10,737,573:1"},
-            {d: "Match 5 + Bonus", m: "5 main + Bonus ball", o: "1,789,596:1"},
-            {d: "Match 3", m: "3 numbers", o: "54:1"}
+            {d: "Jackpot", m: "6 Main", o: "10,737,573:1"},
+            {d: "Match 5 + Bonus", m: "5 Main + Bonus", o: "1,789,596:1"},
+            {d: "Match 5", m: "5 Main", o: "44,740:1"},
+            {d: "Match 4 + Bonus", m: "4 Main + Bonus", o: "17,896:1"},
+            {d: "Match 4", m: "4 Main", o: "918:1"},
+            {d: "Match 3 + Bonus", m: "3 Main + Bonus", o: "679:1"},
+            {d: "Match 3", m: "3 Main", o: "54:1"},
+            {d: "Match 2 + Bonus", m: "2 Main + Bonus", o: "72:1"}
         ]},
         { id: 'euro_mill', name: 'EuroMillions', flag: '🇪🇺', format: [5, 50, 2, 12], prizes: [
-            {d: "Jackpot", m: "5 main + 2 Lucky Stars", o: "139,838,160:1"},
-            {d: "Tier 2", m: "5 main + 1 Lucky Star", o: "6,991,908:1"},
-            {d: "Tier 13", m: "2 main numbers", o: "22:1"}
+            {d: "Jackpot", m: "5 Main + 2 Stars", o: "139,838,160:1"},
+            {d: "Match 5 + 1 Star", m: "5 Main + 1 Star", o: "6,991,908:1"},
+            {d: "Match 5", m: "5 Main", o: "3,107,515:1"},
+            {d: "Match 4 + 2 Stars", m: "4 Main + 2 Stars", o: "621,503:1"},
+            {d: "Match 2", m: "2 Main", o: "22:1"}
         ]},
         { id: 'euro_jack', name: 'Eurojackpot', flag: '🇪🇺', format: [5, 50, 2, 12], prizes: [
-            {d: "Jackpot", m: "5 main + 2 Euro Stars", o: "139,838,160:1"},
-            {d: "Tier 2", m: "5 main + 1 Euro Star", o: "6,991,908:1"},
-            {d: "Tier 12", m: "2 main + 1 Euro Star", o: "49:1"}
+            {d: "Jackpot", m: "5 Main + 2 Stars", o: "139,838,160:1"},
+            {d: "Match 5 + 1 Star", m: "5 Main + 1 Star", o: "6,991,908:1"},
+            {d: "Match 2 + 1 Star", m: "2 Main + 1 Star", o: "49:1"}
         ]},
         { id: 'power_usa', name: 'USA Powerball', flag: '🇺🇸', format: [5, 69, 1, 26], prizes: [
-            {d: "Grand Prize", m: "5 main + Powerball", o: "292,201,338:1"},
-            {d: "Match 5", m: "5 main numbers", o: "11,688,054:1"},
-            {d: "Match 4 + PB", m: "4 main + Powerball", o: "913,129:1"},
-            {d: "Match 4", m: "4 main numbers", o: "36,525:1"},
-            {d: "Match 0 + PB", m: "Powerball Only", o: "38:1"}
+            {d: "Grand Prize", m: "5 Main + PB", o: "292,201,338:1"},
+            {d: "Match 5", m: "5 Main", o: "11,688,054:1"},
+            {d: "Match 4 + PB", m: "4 Main + PB", o: "913,129:1"},
+            {d: "Match 4", m: "4 Main", o: "36,525:1"},
+            {d: "Match 3 + PB", m: "3 Main + PB", o: "14,494:1"},
+            {d: "Match 3", m: "3 Main", o: "580:1"},
+            {d: "Match 2 + PB", m: "2 Main + PB", o: "701:1"},
+            {d: "Match 1 + PB", m: "1 Main + PB", o: "92:1"},
+            {d: "Powerball Only", m: "PB", o: "38:1"}
         ]},
         { id: 'mega_usa', name: 'Mega Millions', flag: '🇺🇸', format: [5, 70, 1, 25], prizes: [
-            {d: "Jackpot", m: "5 main + Mega Ball", o: "302,575,350:1"},
-            {d: "Match 5", m: "5 main numbers", o: "12,607,306:1"},
-            {d: "Match 4 + MB", m: "4 main + Mega Ball", o: "931,001:1"},
-            {d: "Match 0 + MB", m: "Mega Ball Only", o: "37:1"}
+            {d: "Jackpot", m: "5 Main + MB", o: "302,575,350:1"},
+            {d: "Match 5", m: "5 Main", o: "12,607,306:1"},
+            {d: "Match 4 + MB", m: "4 Main + MB", o: "931,001:1"},
+            {d: "Match 4", m: "4 Main", o: "38,792:1"},
+            {d: "Match 3 + MB", m: "3 Main + MB", o: "14,547:1"},
+            {d: "Match 3", m: "3 Main", o: "606:1"},
+            {d: "Match 2 + MB", m: "2 Main + MB", o: "693:1"},
+            {d: "Match 1 + MB", m: "1 Main + MB", o: "89:1"},
+            {d: "Mega Ball Only", m: "MB", o: "37:1"}
         ]}
     ];
 
@@ -165,7 +181,7 @@
 
     function init() {
         const grid = document.getElementById('lotto-grid');
-        lottoData.forEach(l => {
+        lottoConfig.forEach(l => {
             const card = document.createElement('div');
             card.className = 'lotto-card';
             card.onclick = () => showDetail(l.id);
@@ -175,21 +191,18 @@
     }
 
     function showDetail(id) {
-        currentLotto = lottoData.find(l => l.id === id);
+        currentLotto = lottoConfig.find(l => l.id === id);
         document.getElementById('home-view').style.display = 'none';
         document.getElementById('detail-view').style.display = 'block';
-        document.getElementById('lotto-header').innerHTML = `<h2>${currentLotto.flag} ${currentLotto.name}</h2>`;
-        document.getElementById('results-area').innerHTML = '<p style="color:#94a3b8">Ready to generate your smart picks?</p>';
+        document.getElementById('lotto-title-area').innerHTML = `<h2>${currentLotto.flag} ${currentLotto.name}</h2>`;
+        document.getElementById('results-area').innerHTML = '<p style="color:#94a3b8">Press Generate</p>';
         
-        let prizeHtml = `<table class="prize-table">`;
+        let html = `<table class="prize-table">`;
         currentLotto.prizes.forEach(p => {
-            prizeHtml += `<tr>
-                <td><span class="div-label">${p.d}</span><span class="match-info">${p.m}</span></td>
-                <td class="odds-label">${p.o}</td>
-            </tr>`;
+            html += `<tr><td><span class="div-name">${p.d}</span><span class="match-text">${p.m}</span></td><td class="odds-text">${p.o}</td></tr>`;
         });
-        prizeHtml += `</table>`;
-        document.getElementById('prize-table-content').innerHTML = prizeHtml;
+        html += `</table>`;
+        document.getElementById('prize-table-container').innerHTML = html;
         window.scrollTo(0,0);
     }
 
