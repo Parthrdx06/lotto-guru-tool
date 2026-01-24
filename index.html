@@ -3,243 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LottoGuru | Full 12-Lottery Professional Generator</title>
+    <title>LottoGuru | Global Lottery Odds & Ticket Generators</title>
     <style>
-        :root {
-            --primary: #1a2a6c; --secondary: #b21f1f; --accent: #fdbb2d;
-            --success: #27ae60; --light: #f4f7f6; --dark: #1e293b; --shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--light); margin: 0; color: var(--dark); }
-        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 30px; text-align: center; }
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        :root { --primary: #1a2a6c; --secondary: #b21f1f; --accent: #fdbb2d; --dark: #0f0f0f; --card-bg: #1e1e1e; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: var(--dark); color: #fff; margin: 0; padding: 0; line-height: 1.6; }
         
-        /* HOME GRID */
-        .lotto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
-        .lotto-card { background: white; padding: 20px; border-radius: 12px; box-shadow: var(--shadow); cursor: pointer; text-align: center; border: 2px solid transparent; transition: 0.3s; }
-        .lotto-card:hover { border-color: var(--accent); transform: scale(1.02); }
-        .flag { font-size: 2.2rem; display: block; margin-bottom: 5px; }
+        header { background: linear-gradient(135deg, #1a2a6c, #b21f1f); padding: 60px 20px; text-align: center; border-bottom: 4px solid var(--accent); }
+        header h1 { font-size: 3rem; margin: 0; letter-spacing: 2px; }
+        header p { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; }
 
-        /* DETAIL VIEW */
-        #detail-view { display: none; }
-        .btn-back { background: #e2e8f0; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; margin-bottom: 20px; }
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        
+        .section-title { text-align: center; margin-bottom: 40px; border-bottom: 2px solid #333; padding-bottom: 10px; }
 
-        /* GENERATOR (TOP) */
-        .generator-section { background: white; padding: 30px; border-radius: 20px; box-shadow: var(--shadow); text-align: center; margin-bottom: 25px; border: 1px solid #e2e8f0; }
-        .ball-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 20px 0; min-height: 50px; }
-        .ball {
-            width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: 800; font-size: 1.1rem;
-            background: radial-gradient(circle at 15px 15px, #4facfe, #0061ff);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .ball.special { background: radial-gradient(circle at 15px 15px, #ff5858, #f85032); }
-        .btn-gen { background: var(--success); color: white; border: none; padding: 15px 40px; border-radius: 30px; cursor: pointer; font-weight: bold; font-size: 1.1rem; }
+        /* THE 12-CARD GRID */
+        .lotto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        
+        .lotto-card { background: var(--card-bg); border-radius: 15px; padding: 25px; text-align: center; transition: 0.3s; border: 1px solid #333; cursor: pointer; position: relative; overflow: hidden; }
+        .lotto-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .lotto-card h3 { margin: 15px 0 10px; font-size: 1.5rem; color: var(--accent); }
+        .lotto-card p { color: #ccc; font-size: 0.9rem; margin-bottom: 20px; }
+        .btn-view { background: var(--accent); color: #000; padding: 10px 20px; border-radius: 25px; font-weight: bold; text-decoration: none; display: inline-block; transition: 0.3s; }
+        .btn-view:hover { background: #fff; }
+        .flag { font-size: 2rem; display: block; }
 
-        /* PRIZE DIVISIONS (UNDERNEATH) */
-        .prize-section { background: white; padding: 25px; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid #e2e8f0; }
-        .prize-table { width: 100%; border-collapse: collapse; }
-        .prize-table tr { border-bottom: 1px solid #f1f5f9; }
-        .prize-table td { padding: 14px 8px; }
-        .div-name { font-weight: 800; color: var(--primary); font-size: 1rem; display: block; }
-        .match-text { color: #64748b; font-size: 0.85rem; display: block; }
-        .odds-text { text-align: right; font-weight: 700; font-size: 0.95rem; white-space: nowrap; }
+        /* SEO CONTENT AREA */
+        .seo-content { background: #161616; padding: 40px; border-radius: 15px; border: 1px solid #222; color: #aaa; }
+        .seo-content h2 { color: #fff; }
+
+        footer { background: #000; padding: 40px 20px; text-align: center; margin-top: 60px; border-top: 1px solid #333; }
+        .footer-links { margin-bottom: 20px; }
+        .footer-links a { color: #aaa; text-decoration: none; margin: 0 15px; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--accent); }
+        .copyright { font-size: 0.8rem; color: #555; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>🎱 LottoGuru</h1>
-    <p>Professional Lottery Generator & Full Prize Analytics</p>
+    <h1>LottoGuru</h1>
+    <p>Official Odds, Prize Tiers & Random Ticket Generators</p>
 </header>
 
 <div class="container">
-    <div id="home-view">
-        <div class="lotto-grid" id="lotto-grid"></div>
-    </div>
-
-    <div id="detail-view">
-        <button class="btn-back" onclick="showHome()">← Back</button>
-        <div id="lotto-title-area"></div>
-
-        <div class="generator-section">
-            <div id="results-area"><p style="color:#94a3b8">Tap Generate for your smart picks</p></div>
-            <button class="btn-gen" onclick="runGenerator()">Generate Numbers</button>
+    
+    <h2 class="section-title">Australian Lotteries</h2>
+    <div class="lotto-grid">
+        <div class="lotto-card" onclick="location.href='oz-lotto/'">
+            <span class="flag">🇦🇺</span>
+            <h3>Oz Lotto</h3>
+            <p>Tuesday's Big Draw. 7 Numbers from 47.</p>
+            <span class="btn-view">Generator & Odds</span>
         </div>
 
-        <div class="prize-section">
-            <h3 style="color:var(--primary); margin-top:0;">Winning Divisions</h3>
-            <div id="prize-table-container"></div>
+        <div class="lotto-card" onclick="location.href='powerball/'">
+            <span class="flag">🇦🇺</span>
+            <h3>AU Powerball</h3>
+            <p>Thursday Night Jackpots. 7+1 Format.</p>
+            <span class="btn-view">Generator & Odds</span>
+        </div>
+
+        <div class="lotto-card" onclick="location.href='mon-wed-sat-lotto/'">
+            <span class="flag">🇦🇺</span>
+            <h3>Monday & Wed</h3>
+            <p>Guaranteed $1 Million for up to 4 winners.</p>
+            <span class="btn-view">Generator & Odds</span>
+        </div>
+
+        <div class="lotto-card" onclick="location.href='saturday-lotto/'">
+            <span class="flag">🇦🇺</span>
+            <h3>Saturday Lotto</h3>
+            <p>Famous Superdraws and massive prize pools.</p>
+            <span class="btn-view">Generator & Odds</span>
+        </div>
+
+        <div class="lotto-card" onclick="location.href='lucky-lotteries-mega/'">
+            <span class="flag">🇦🇺</span>
+            <h3>Mega Jackpot</h3>
+            <p>Raffle-style draw. Guaranteed 1st Prize.</p>
+            <span class="btn-view">Generator & Odds</span>
+        </div>
+
+        <div class="lotto-card" onclick="location.href='super-66/'">
+            <span class="flag">🇦🇺</span>
+            <h3>Super 66</h3>
+            <p>Add-on game with unique 6-digit combinations.</p>
+            <span class="btn-view">Generator & Odds</span>
         </div>
     </div>
+
+    <h2 class="section-title">International Lotteries</h2>
+    <div class="lotto-grid">
+        <div class="lotto-card" onclick="location.href='irish-lotto/'">
+            <span class="flag">☘️</span>
+            <h3>Irish Lotto</h3>
+            <p>Ireland's flagship 6/47 national game.</p>
+            <span class="btn-view">Generator & Odds</span>
+        </div>
+
+        <div class="lotto-card" onclick="location.href='euromillions/'">
+            <span class="flag">🇪🇺</span>
+            <h3>EuroMillions</h3>
+            <p>Europe's biggest multi-national jackpot.</p>
+            <span class="btn-view">Generator & Odds</span>
+        </div>
+
+        <div class="lotto-card" onclick="location.href='eurojackpot/'">
+            <span class="flag">🇪🇺</span>
+            <h3>Eurojackpot</h3>
+            <p>Frequent wins across 19 European countries.</p>
+            <span class="btn-view">Generator & Odds</span>
+        </div>
+
+        <div class="lotto-card" onclick="location.href='usa-powerball/'">
+            <span class="flag">🇺🇸</span>
+            <h3>USA Powerball</h3>
+            <p>The world-record holder for largest jackpots.</p>
+            <span class="btn-view">Generator & Odds</span>
+        </div>
+
+        <div class="lotto-card" onclick="location.href='mega-millions/'">
+            <span class="flag">🇺🇸</span>
+            <h3>Mega Millions</h3>
+            <p>Huge multipliers and billion-dollar prizes.</p>
+            <span class="btn-view">Generator & Odds</span>
+        </div>
+
+        <div class="lotto-card" onclick="location.href='lucky-lotteries-super/'">
+            <span class="flag">🇦🇺</span>
+            <h3>Super Lotto</h3>
+            <p>Raffle-style fun with 1 in 10 chance of any prize.</p>
+            <span class="btn-view">Generator & Odds</span>
+        </div>
+    </div>
+
+    <article class="seo-content">
+        <h2>Your Trusted Lottery Resource</h2>
+        <p>Welcome to LottoGuru, the comprehensive guide to the world's most popular lotteries. Whether you are looking for the latest odds, prize division breakdowns, or a random number generator to help you pick your next entry, we have you covered.</p>
+        <p>Our tools are designed to provide statistically random numbers tailored to the specific rules of each game—from the 7/47 format of Oz Lotto to the complex 5/70 format of the American Mega Millions. We analyze official prize tiers and winning probabilities to help you understand the games you play better.</p>
+        <p><em>Disclaimer: LottoGuru is an independent information service and is not affiliated with any official lottery operator. Please play responsibly.</em></p>
+    </article>
 </div>
 
-<script>
-    const lottoConfig = [
-        { id: 'sat_lotto', name: 'Saturday Lotto', flag: '🇦🇺', format: [6, 45, 0, 0], prizes: [
-            {d: "Division 1", m: "6 Main", o: "8,145,060:1"},
-            {d: "Division 2", m: "5 Main + 1 or 2 Supps", o: "678,755:1"},
-            {d: "Division 3", m: "5 Main", o: "36,690:1"},
-            {d: "Division 4", m: "4 Main", o: "733:1"},
-            {d: "Division 5", m: "3 Main + 1 or 2 Supps", o: "298:1"},
-            {d: "Division 6", m: "3 Main", o: "53:1"}
-        ]},
-        { id: 'power_au', name: 'Powerball AU', flag: '🇦🇺', format: [7, 35, 1, 20], prizes: [
-            {d: "Division 1", m: "7 Main + Powerball", o: "134,490,400:1"},
-            {d: "Division 2", m: "7 Main", o: "7,078,443:1"},
-            {d: "Division 3", m: "6 Main + Powerball", o: "686,176:1"},
-            {d: "Division 4", m: "6 Main", o: "36,115:1"},
-            {d: "Division 5", m: "5 Main + Powerball", o: "16,943:1"},
-            {d: "Division 6", m: "4 Main + Powerball", o: "1,173:1"},
-            {d: "Division 7", m: "5 Main", o: "892:1"},
-            {d: "Division 8", m: "3 Main + Powerball", o: "188:1"},
-            {d: "Division 9", m: "2 Main + Powerball", o: "66:1"}
-        ]},
-        { id: 'oz_lotto', name: 'Oz Lotto', flag: '🇦🇺', format: [7, 47, 0, 0], prizes: [
-            {d: "Division 1", m: "7 Main", o: "62,891,499:1"},
-            {d: "Division 2", m: "6 Main + 1 Supp", o: "2,994,834:1"},
-            {d: "Division 3", m: "6 Main", o: "187,178:1"},
-            {d: "Division 4", m: "5 Main + 1 Supp", o: "25,640:1"},
-            {d: "Division 5", m: "5 Main", o: "3,205:1"},
-            {d: "Division 6", m: "4 Main", o: "161:1"},
-            {d: "Division 7", m: "3 Main + 1 Supp", o: "71:1"}
-        ]},
-        { id: 'weekday', name: 'Weekday Windfall', flag: '🇦🇺', format: [6, 45, 0, 0], prizes: [
-            {d: "Division 1", m: "6 Main", o: "8,145,060:1"},
-            {d: "Division 2", m: "5 Main + 1 or 2 Supps", o: "678,755:1"},
-            {d: "Division 3", m: "5 Main", o: "36,690:1"},
-            {d: "Division 4", m: "4 Main", o: "733:1"},
-            {d: "Division 5", m: "3 Main + 1 or 2 Supps", o: "298:1"},
-            {d: "Division 6", m: "3 Main", o: "53:1"}
-        ]},
-        { id: 'set_life', name: 'Set for Life', flag: '🇦🇺', format: [7, 44, 0, 0], prizes: [
-            {d: "Division 1", m: "7 Main", o: "38,320,568:1"},
-            {d: "Division 2", m: "6 Main + 1 Supp", o: "2,400,000:1"},
-            {d: "Division 3", m: "6 Main", o: "170,000:1"},
-            {d: "Division 4", m: "5 Main + 1 Supp", o: "28,500:1"},
-            {d: "Division 5", m: "5 Main", o: "3,500:1"},
-            {d: "Division 6", m: "4 Main + 1 Supp", o: "1,100:1"},
-            {d: "Division 7", m: "4 Main", o: "160:1"},
-            {d: "Division 8", m: "3 Main + 1 Supp", o: "80:1"}
-        ]},
-        { id: 'lotto_strike', name: 'Lotto Strike', flag: '🇦🇺', format: [4, 45, 0, 0], prizes: [
-            {d: "Strike 4", m: "4 Numbers (Exact Order)", o: "3,575,880:1"},
-            {d: "Strike 3", m: "3 Numbers (Exact Order)", o: "33,110:1"},
-            {d: "Strike 2", m: "2 Numbers (Exact Order)", o: "1,110:1"},
-            {d: "Strike 1", m: "1 Number (Exact Order)", o: "45:1"}
-        ]},
-        { id: 'lucky_mega', name: 'Lucky Mega', flag: '🇦🇺', format: [1, 200000, 0, 0], prizes: [
-            {d: "Jackpot", m: "Ticket No + Jackpot Match", o: "9,483,168:1"},
-            {d: "1st Prize", m: "Ticket Number Match", o: "200,000:1"}
-        ]},
-        { id: 'irish_lotto', name: 'Irish Lotto', flag: '🇮🇪', format: [6, 47, 0, 0], prizes: [
-            {d: "Jackpot", m: "6 Main", o: "10,737,573:1"},
-            {d: "Match 5 + Bonus", m: "5 Main + Bonus", o: "1,789,596:1"},
-            {d: "Match 5", m: "5 Main", o: "44,740:1"},
-            {d: "Match 4 + Bonus", m: "4 Main + Bonus", o: "17,896:1"},
-            {d: "Match 4", m: "4 Main", o: "918:1"},
-            {d: "Match 3 + Bonus", m: "3 Main + Bonus", o: "679:1"},
-            {d: "Match 3", m: "3 Main", o: "54:1"},
-            {d: "Match 2 + Bonus", m: "2 Main + Bonus", o: "72:1"}
-        ]},
-        { id: 'euro_mill', name: 'EuroMillions', flag: '🇪🇺', format: [5, 50, 2, 12], prizes: [
-            {d: "Jackpot", m: "5 Main + 2 Stars", o: "139,838,160:1"},
-            {d: "Match 5 + 1 Star", m: "5 Main + 1 Star", o: "6,991,908:1"},
-            {d: "Match 5", m: "5 Main", o: "3,107,515:1"},
-            {d: "Match 4 + 2 Stars", m: "4 Main + 2 Stars", o: "621,503:1"},
-            {d: "Match 2", m: "2 Main", o: "22:1"}
-        ]},
-        { id: 'euro_jack', name: 'Eurojackpot', flag: '🇪🇺', format: [5, 50, 2, 12], prizes: [
-            {d: "Jackpot", m: "5 Main + 2 Stars", o: "139,838,160:1"},
-            {d: "Match 5 + 1 Star", m: "5 Main + 1 Star", o: "6,991,908:1"},
-            {d: "Match 2 + 1 Star", m: "2 Main + 1 Star", o: "49:1"}
-        ]},
-        { id: 'power_usa', name: 'USA Powerball', flag: '🇺🇸', format: [5, 69, 1, 26], prizes: [
-            {d: "Grand Prize", m: "5 Main + PB", o: "292,201,338:1"},
-            {d: "Match 5", m: "5 Main", o: "11,688,054:1"},
-            {d: "Match 4 + PB", m: "4 Main + PB", o: "913,129:1"},
-            {d: "Match 4", m: "4 Main", o: "36,525:1"},
-            {d: "Match 3 + PB", m: "3 Main + PB", o: "14,494:1"},
-            {d: "Match 3", m: "3 Main", o: "580:1"},
-            {d: "Match 2 + PB", m: "2 Main + PB", o: "701:1"},
-            {d: "Match 1 + PB", m: "1 Main + PB", o: "92:1"},
-            {d: "Powerball Only", m: "PB", o: "38:1"}
-        ]},
-        { id: 'mega_usa', name: 'Mega Millions', flag: '🇺🇸', format: [5, 70, 1, 25], prizes: [
-            {d: "Jackpot", m: "5 Main + MB", o: "302,575,350:1"},
-            {d: "Match 5", m: "5 Main", o: "12,607,306:1"},
-            {d: "Match 4 + MB", m: "4 Main + MB", o: "931,001:1"},
-            {d: "Match 4", m: "4 Main", o: "38,792:1"},
-            {d: "Match 3 + MB", m: "3 Main + MB", o: "14,547:1"},
-            {d: "Match 3", m: "3 Main", o: "606:1"},
-            {d: "Match 2 + MB", m: "2 Main + MB", o: "693:1"},
-            {d: "Match 1 + MB", m: "1 Main + MB", o: "89:1"},
-            {d: "Mega Ball Only", m: "MB", o: "37:1"}
-        ]}
-    ];
+<footer>
+    <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+    <p class="copyright">&copy; 2026 LottoGuru. All rights reserved.</p>
+</footer>
 
-    let currentLotto = null;
-
-    function init() {
-        const grid = document.getElementById('lotto-grid');
-        lottoConfig.forEach(l => {
-            const card = document.createElement('div');
-            card.className = 'lotto-card';
-            card.onclick = () => showDetail(l.id);
-            card.innerHTML = `<span class="flag">${l.flag}</span><strong>${l.name}</strong>`;
-            grid.appendChild(card);
-        });
-    }
-
-    function showDetail(id) {
-        currentLotto = lottoConfig.find(l => l.id === id);
-        document.getElementById('home-view').style.display = 'none';
-        document.getElementById('detail-view').style.display = 'block';
-        document.getElementById('lotto-title-area').innerHTML = `<h2>${currentLotto.flag} ${currentLotto.name}</h2>`;
-        document.getElementById('results-area').innerHTML = '<p style="color:#94a3b8">Press Generate</p>';
-        
-        let html = `<table class="prize-table">`;
-        currentLotto.prizes.forEach(p => {
-            html += `<tr><td><span class="div-name">${p.d}</span><span class="match-text">${p.m}</span></td><td class="odds-text">${p.o}</td></tr>`;
-        });
-        html += `</table>`;
-        document.getElementById('prize-table-container').innerHTML = html;
-        window.scrollTo(0,0);
-    }
-
-    function showHome() {
-        document.getElementById('detail-view').style.display = 'none';
-        document.getElementById('home-view').style.display = 'block';
-    }
-
-    function runGenerator() {
-        const results = document.getElementById('results-area');
-        results.innerHTML = '';
-        const [mC, mM, sC, sM] = currentLotto.format;
-        const row = document.createElement('div'); row.className = 'ball-row';
-        
-        let nums = [];
-        while(nums.length < mC) {
-            let r = Math.floor(Math.random() * mM) + 1;
-            if(!nums.includes(r)) nums.push(r);
-        }
-        nums.sort((a,b) => a-b).forEach(n => {
-            const b = document.createElement('div'); b.className = 'ball'; b.innerText = n; row.appendChild(b);
-        });
-        
-        if(sC > 0) {
-            let spec = [];
-            while(spec.length < sC) {
-                let r = Math.floor(Math.random() * sM) + 1;
-                if(!spec.includes(r)) spec.push(r);
-            }
-            spec.forEach(n => {
-                const b = document.createElement('div'); b.className = 'ball special'; b.innerText = n; row.appendChild(b);
-            });
-        }
-        results.appendChild(row);
-    }
-
-    window.onload = init;
-</script>
 </body>
 </html>
